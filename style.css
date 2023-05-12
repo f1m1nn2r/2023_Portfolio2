@@ -150,8 +150,6 @@ a {
 .area01 .section01-inner .m-txt-wrap .next-section-arrow {
   width: 13.6vw;
   height: 13.6vw;
-  border: 1px solid #999;
-  border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,6 +159,8 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border: 1px solid #999;
+  border-radius: 50%;
   cursor: pointer;
 }
 .area01 .section01-inner .m-txt-wrap .next-section-arrow span {
@@ -381,4 +381,313 @@ a {
 }
 .area02 .section02-inner .content-row .skils .con ul li::before {
   display: none;
+}
+.area02 .section03-inner .intro-txt-wrap p {
+  font-size: 3vw;
+  font-weight: 400;
+  font-family: "Baskervville", serif;
+  color: #AC2222;
+  text-transform: uppercase;
+}
+.area02 .section03-inner .intro-txt-wrap h1 {
+  padding: 0 0 0 7vw;
+  line-height: 1.1;
+  font-size: 6vw;
+  font-weight: 400;
+  font-family: "Baskervville", serif;
+  color: #000;
+  font-style: italic;
+  color: #fff;
+}
+.area02 .section03-inner .content-column {
+  padding: 7vw 0 0 0;
+}
+.area02 .section03-inner .content-column ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  padding: 2vw 0;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+.area02 .section03-inner .content-column ul li p {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 1.1;
+  font-size: 6vw;
+  font-weight: 400;
+  font-family: "Baskervville", serif;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
+.area02 .section03-inner .content-column ul li p span {
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  color: #999;
+}
+.area02 .section03-inner .content-column ul li p.spaceBetween {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.area02 .section03-inner .content-column ul li .work-img {
+  width: 18vw;
+  height: 25vw;
+  position: absolute;
+  z-index: 99;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
+  opacity: 0;
+  visibility: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.area02 .section03-inner .content-column ul li:last-child {
+  border-bottom: 0;
+}
+.area02 .section03-inner .content-column ul li.opacity .work-img {
+  opacity: 1;
+  visibility: visible;
+}
+.area02 .section03-inner .sub_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
+  padding: 0.6vw 0.6vw 0.6vw 0;
+  border: 2px solid #fff;
+  border-radius: 4vw;
+  cursor: pointer;
+}
+.area02 .section03-inner .sub_link p {
+  width: 100%;
+  height: 3.9vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: absolute;
+  z-index: 5;
+  padding: 0 3vw;
+  overflow: hidden;
+  font-size: 3.23vw;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.area02 .section03-inner .sub_link p span {
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.area02 .section03-inner .sub_link a {
+  width: calc(100% - 0.6vw);
+  height: 6.5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
+}
+.area02 .section03-inner .sub_link a span {
+  width: 0.2vw;
+  height: 3vw;
+  display: block;
+  position: relative;
+  background: #999;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin: 0 3vw 0 0;
+  background: #000;
+}
+.area02 .section03-inner .sub_link a span::before, .area02 .section03-inner .sub_link a span::after {
+  content: "";
+  width: 0.2vw;
+  height: 1.5vw;
+  position: absolute;
+  bottom: -0.4vw;
+  background: inherit;
+}
+.area02 .section03-inner .sub_link a span::before {
+  left: 0.5vw;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.area02 .section03-inner .sub_link a span::after {
+  right: 0.5vw;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.area02 .section03-inner .sub_link a::before {
+  content: "";
+  width: 6.5vw;
+  height: 6.5vw;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #AC2222;
+  border-radius: 10vw;
+  -webkit-transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.area02 .section03-inner .sub_link:hover p {
+  text-align: right;
+}
+.area02 .section03-inner .sub_link:hover p span:first-child {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+.area02 .section03-inner .sub_link:hover p span:last-child {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+.area02 .section03-inner .sub_link:hover a {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.area02 .section03-inner .sub_link:hover a span {
+  margin: 0 0 0 3vw;
+}
+.area02 .section03-inner .sub_link:hover a::before {
+  width: 100%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.area02 .section04 {
+  position: relative;
+}
+.area02 .section04-inner {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.area02 .section04-inner .bg-circle {
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #eee;
+  border-radius: 50%;
+}
+
+/*** 메인 끝 ***/
+.area03 .section05-inner {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.area03 .section05-inner .intro-txt-wrap h1 {
+  line-height: 1.1;
+  font-size: 6vw;
+  font-weight: 400;
+  font-family: "Baskervville", serif;
+  color: #000;
+  text-transform: uppercase;
+}
+.area03 .section05-inner .intro-txt-wrap .txt {
+  margin: 2.5vw 0 0 0;
+}
+.area03 .section05-inner .intro-txt-wrap .txt a {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 1vw 0;
+  font-size: 1.63vw;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+}
+.area03 .section05-inner .intro-txt-wrap .txt a::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  background: #000;
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.area03 .section05-inner .intro-txt-wrap .txt a:hover::before {
+  width: 0;
+  left: auto;
+  right: 0;
+}
+.area03 .section05-inner .intro-txt-wrap .txt p {
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #000;
+}
+.area03 .section05-inner .mail {
+  width: 13.6vw;
+  height: 13.6vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #999;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-right: 0;
+  margin-top: 11vw;
 }

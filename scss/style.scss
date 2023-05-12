@@ -25,7 +25,13 @@ $notoS:'Noto Serif', serif;
 @mixin m-txt(){line-height:1.5; @include font(1.65vw, 500, $mont, $black);}
 @mixin heading-txt(){@include font(3vw, 400, $basker, $red); text-transform:uppercase;} 
 @mixin italic(){font-style:italic;}
-@mixin circle-con(){@include conSize(13.6vw, 13.6vw, null); border:1px solid $gray; border-radius:50%;}
+@mixin circle-con(){@include conSize(13.6vw, 13.6vw, null); @include dis-flex(center, center, null); border:1px solid $gray; border-radius:50%;}
+@mixin arrow(){@include conSize(0.2vw, 3vw, null); display:block; position:relative; background:$gray;
+    &::before, &::after{content:""; @include conSize(0.2vw, 1.5vw, null); @include position(absolute, null, null, -.4vw, null, null); background:inherit;}
+    &::before{left:.5vw; transform:rotate(45deg);}
+    &::after{right:.5vw; transform:rotate(-45deg);}
+}
+@mixin transform(){transform-style:preserve-3d; will-change:transform;}
 
 body{margin:0; overflow-x:hidden; background:$basic;}
 *{margin:0; padding:0; box-sizing:border-box;}
@@ -56,8 +62,8 @@ a{text-decoration:none; color:$black;}
 /*** 우측 고정 컨텐츠 끝 ***/
 
 /*** 메인 시작 ***/
-// 섹션01
 .area01{
+    // 섹션01
     .section01{
         &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column);
             .intro-txt-wrap{
@@ -69,21 +75,17 @@ a{text-decoration:none; color:$black;}
             }
             .m-txt-wrap{@include dis-flex(center, space-between, null); margin:1.3vw 0 0 0;
                 .txt{@include m-txt;}
-                .next-section-arrow{@include circle-con; @include dis-flex(center, center, null); cursor:pointer;
-                    span{@include conSize(0.2vw, 3vw, null); display:block; position:relative; background:$gray;
-                        &::before, &::after{content:""; @include conSize(0.2vw, 1.5vw, null); @include position(absolute, null, null, -.4vw, null, null); background:inherit;}
-                        &::before{left:.5vw; transform:rotate(45deg);}
-                        &::after{right:.5vw; transform:rotate(-45deg);}
-                    }
+                .next-section-arrow{@include circle-con; cursor:pointer;
+                    span{@include arrow;}
                 }
             }
         }
     }
+    // 섹션01 끝
 }
-// 섹션01 끝
 
-// 섹션02
 .area02{background:$black;
+    // 섹션02
     .section02{
         &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column);
             .intro-txt-wrap{
@@ -127,6 +129,83 @@ a{text-decoration:none; color:$black;}
                     }
                 }
             }
+        }
+    }
+    // 섹션02 끝
+
+    // 섹션03
+    .section03{
+        &-inner{
+            .intro-txt-wrap{
+                p{@include heading-txt;}
+                h1{padding:0 0 0 7vw; @include b-txt; @include italic; color:#fff;}
+            }
+            .content-column{padding:7vw 0 0 0;
+                ul{
+                    li{@include dis-flex(flex-end, center, null); position:relative; padding:2vw 0; border-bottom:1px solid #fff; cursor:pointer;
+                        p{@include conSize(100%, null, null); @include dis-flex(flex-end, center, null); @include b-txt; font-family:$mont; color:#fff;
+                            span{@include font(1vw, 400, $mont, $gray);}
+                            &.spaceBetween{justify-content:space-between;}
+                        }
+                        .work-img{@include conSize(18vw, 25vw, null); @include position(absolute, null, null, null, null, 99); @include transform; opacity:0; visibility:hidden; background-size:cover; background-position:center;}
+                        &:last-child{border-bottom:0;}
+                        &.opacity{
+                            .work-img{opacity:1; visibility:visible;}
+                        }
+                    }
+                }
+            }
+            .sub_link{@include dis-flex(center, flex-end, null); position:relative; padding:0.6vw 0.6vw 0.6vw 0; border:2px solid #fff; border-radius:4vw; cursor:pointer;
+                p{@include conSize(100%, 3.9vw, null); @include dis-flex(null, null, column); @include position(absolute, null, null, null, null, 5); padding:0 3vw; overflow:hidden; @include font(3.23vw, 500, $mont, #fff); transition:all .5s $easing;
+                    span{transition:all .5s $easing;}
+                }
+                a{@include conSize(calc(100% - .6vw), 6.5vw, null); @include dis-flex(center, flex-end, null); position:relative; 
+                    span{@include arrow; transform:rotate(-90deg); margin:0 3vw 0 0; background:$black;}
+                    &::before{content:""; @include conSize(6.5vw, 6.5vw, null); transform-origin:bottom left; @include position(absolute, 0, 0, null, null, null); background:$red; border-radius:10vw; transition:width .5s $easing;}
+                }
+                &:hover{
+                    p{text-align:right;
+                        span{
+                            &:first-child{transform:translateY(100%)}
+                            &:last-child{transform:translateY(-100%)}
+                        }
+                    }
+                    a{justify-content:flex-start;
+                        span{margin:0 0 0 3vw;}
+                        &::before{width:100%; transform:scale(1);}
+                    }
+                }
+            }
+        }
+    }
+    // 섹션03 끝
+
+    // 섹션04
+    .section04{position:relative;
+        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column);
+            .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%;}
+        }
+    }
+    // 섹션04 끝
+}
+/*** 메인 끝 ***/
+
+.area03{
+    .section05{
+        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column);
+            .intro-txt-wrap{
+                h1{@include b-txt; text-transform:uppercase;}
+                .txt{margin:2.5vw 0 0 0;
+                    a{display:inline-block; position:relative; margin:0 0 1vw 0; @include font(1.63vw, 500, $mont, $black);
+                        &::before{content:""; @include conSize(100%, 2px, null); @include position(absolute, null, null, -4px, 0, null); background:$black; transition:all .5s $easing;}
+                        &:hover{
+                            &::before{width:0; left:auto; right:0;}
+                        }
+                    }
+                    p{@include font(1vw, 400, $noto, $black);}
+                }
+            }
+            .mail{@include circle-con; margin:0 auto; margin-right:0; margin-top:11vw}
         }
     }
 }
