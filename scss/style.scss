@@ -32,6 +32,7 @@ $notoS:'Noto Serif', serif;
     &::after{right:.5vw; transform:rotate(-45deg);}
 }
 @mixin transform(){transform-style:preserve-3d; will-change:transform;}
+.rl-scroll{@include transform;}
 
 body{margin:0; overflow-x:hidden; background:$basic;}
 *{margin:0; padding:0; box-sizing:border-box;}
@@ -64,8 +65,8 @@ a{text-decoration:none; color:$black;}
 /*** 메인 시작 ***/
 .area01{
     // 섹션01
-    .section01{
-        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column);
+    .section01{overflow:hidden;
+        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column); @include transform;
             .intro-txt-wrap{
                 h1{@include dis-flex(null, null, null); @include b-txt; text-transform:uppercase;
                     &:nth-child(2){padding:0 0 0 27vw;
@@ -73,7 +74,7 @@ a{text-decoration:none; color:$black;}
                     }
                 }
             }
-            .m-txt-wrap{@include dis-flex(center, space-between, null); margin:1.3vw 0 0 0;
+            .m-txt-wrap{@include dis-flex(center, space-between, null); @include transform; margin:1.3vw 0 0 0;
                 .txt{@include m-txt;}
                 .next-section-arrow{@include circle-con; cursor:pointer;
                     span{@include arrow;}

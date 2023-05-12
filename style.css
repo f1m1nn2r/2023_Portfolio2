@@ -7,6 +7,12 @@
   font-family: "Noto Sans KR", sans-serif !important;
 }
 
+.rl-scroll {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -97,6 +103,9 @@ a {
 
 /*** 우측 고정 컨텐츠 끝 ***/
 /*** 메인 시작 ***/
+.area01 .section01 {
+  overflow: hidden;
+}
 .area01 .section01-inner {
   height: 100vh;
   display: -webkit-box;
@@ -109,6 +118,9 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
 }
 .area01 .section01-inner .intro-txt-wrap h1 {
   display: -webkit-box;
@@ -138,6 +150,9 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
   margin: 1.3vw 0 0 0;
 }
 .area01 .section01-inner .m-txt-wrap .txt {
