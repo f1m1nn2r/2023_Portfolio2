@@ -41,7 +41,7 @@ a{text-decoration:none; color:$black;}
 .section-inner{padding:0 8.5vw 0 6vw;}
 
 /*** 헤더 시작 ***/
-.at-header{@include conSize(calc(100% - 5.4vw), null, null); @include position(fixed, 0, null, null, 0, 99); padding:2vw 2vw 2vw 1vw; backdrop-filter:blur(6px);
+.at-header{@include conSize(calc(100% - 5.4vw), null, null); @include position(fixed, 0, null, null, 0, 99); padding:2vw 2vw 2vw 1vw; backdrop-filter:blur(6px); transition:all .5s $easing;
     .header-inner{@include dis-flex(flex-start, space-between, null);
         ul{@include dis-flex(center, null, null); column-gap:4.35vw;
             li{
@@ -53,13 +53,21 @@ a{text-decoration:none; color:$black;}
                     p{cursor:pointer;}
                 }
             }
+            &:last-child{column-gap:2.35vw;
+                li{padding:0.5vw 1vw; background:$basic; border-radius:5vw;}
+            }
         }
     }
 }
 /*** 헤더 끝 ***/ 
 
 /*** 우측 고정 컨텐츠 시작 ***/
-.right-fix{@include conSize(5.4vw, 100%, null); @include position(fixed, 0, 0, null, null, 99); background:$red;}
+.right-fix{@include conSize(5.4vw, 100%, null); @include dis-flex(null, space-between, column); @include position(fixed, 0, 0, null, null, 99); background:$red;
+    & > div{writing-mode:vertical-lr}
+    p{@include conSize(100%, 3vw, null); @include dis-flex(null, null, column); position:relative; overflow:hidden; @include font(1vw, 400, $basker, $black);
+        span{@include position(absolute, null, null, null, null, null); transition:all .3s $easing;}
+    }
+}
 /*** 우측 고정 컨텐츠 끝 ***/
 
 /*** 메인 시작 ***/
@@ -100,13 +108,18 @@ a{text-decoration:none; color:$black;}
                     .heading-b{@include dis-flex(center, space-between, null); padding:1vw 0; border:1px solid #fff; border-left:0; border-right:0; cursor:pointer;
                         h1{@include font(4.5vw, 500, $mont, #fff); text-transform:uppercase;}
                         .open-fold-toggle-arrow{@include conSize(2.2vw, 2.2vw, null); position:relative; @include dis-flex(center, center, null);
-                            span{display:block; position:absolute; background:#fff;
+                            span{display:block; position:absolute; background:#fff; transition:all .3s $easing;
                                 &.row{@include conSize(100%, 5px, null);}
-                                &.column{@include conSize(5px, 100%, null);}
+                                &.column{@include conSize(5px, 100%, null); transform:rotate(90deg);}
+                            }
+                            &.exposuer{
+                                span{
+                                    &.column{transform:rotate(0);}
+                                }
                             }
                         }
                     }
-                    .con{padding:1.5vw 0 0 0;
+                    .con{max-height:0; padding:1.5vw 0 0 0; opacity:0; visibility:hidden; transition:all .3s $easing;
                         li{@include dis-flex(center, null, null); position:relative; counter-increment:li-counter; color:#fff;
                             .fir{@include conSize(14vw, null, null); @include dis-flex(center, null, null); column-gap:0.75vw;
                                 .line{@include conSize(1.6vw, 2px, null); background:#fff;}
@@ -115,6 +128,7 @@ a{text-decoration:none; color:$black;}
                             .history{@include font(1vw, 300, $noto, null);}
                             &::before{content:counter(li-counter, decimal-leading-zero); margin:0 0.75vw 0 0; @include font(1.63vw, 300, $notoS, $red);}
                         }
+                        &.exposuer{max-height:100em; opacity:1; visibility:visible}
                     }
                 }
                 .skils{

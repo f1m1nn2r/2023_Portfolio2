@@ -49,6 +49,8 @@ a {
   padding: 2vw 2vw 2vw 1vw;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .at-header .header-inner {
   display: -webkit-box;
@@ -88,17 +90,64 @@ a {
 .at-header .header-inner ul:last-child li p {
   cursor: pointer;
 }
+.at-header .header-inner ul:last-child {
+  -webkit-column-gap: 2.35vw;
+     -moz-column-gap: 2.35vw;
+          column-gap: 2.35vw;
+}
+.at-header .header-inner ul:last-child li {
+  padding: 0.5vw 1vw;
+  background: #eee;
+  border-radius: 5vw;
+}
 
 /*** 헤더 끝 ***/
 /*** 우측 고정 컨텐츠 시작 ***/
 .right-fix {
   width: 5.4vw;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 99;
   background: #AC2222;
+}
+.right-fix > div {
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+}
+.right-fix p {
+  width: 100%;
+  height: 3vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: relative;
+  overflow: hidden;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: "Baskervville", serif;
+  color: #000;
+}
+.right-fix p span {
+  position: absolute;
+  -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 /*** 우측 고정 컨텐츠 끝 ***/
@@ -296,6 +345,8 @@ a {
   display: block;
   position: absolute;
   background: #fff;
+  -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .area02 .section02-inner .content-row .open-fold-toggle .heading-b .open-fold-toggle-arrow span.row {
   width: 100%;
@@ -304,9 +355,20 @@ a {
 .area02 .section02-inner .content-row .open-fold-toggle .heading-b .open-fold-toggle-arrow span.column {
   width: 5px;
   height: 100%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.area02 .section02-inner .content-row .open-fold-toggle .heading-b .open-fold-toggle-arrow.exposuer span.column {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
 }
 .area02 .section02-inner .content-row .open-fold-toggle .con {
+  max-height: 0;
   padding: 1.5vw 0 0 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .area02 .section02-inner .content-row .open-fold-toggle .con li {
   display: -webkit-box;
@@ -353,6 +415,11 @@ a {
   font-weight: 300;
   font-family: "Noto Serif", serif;
   color: #AC2222;
+}
+.area02 .section02-inner .content-row .open-fold-toggle .con.exposuer {
+  max-height: 100em;
+  opacity: 1;
+  visibility: visible;
 }
 .area02 .section02-inner .content-row .skils .con {
   display: -webkit-box;
