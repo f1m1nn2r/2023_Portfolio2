@@ -1,0 +1,132 @@
+@charset 'utf-8';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+$black:#000;
+$red:#AC2222;
+$basic:#eee;
+$gray:#999;
+$easing:cubic-bezier(0.215, 0.61, 0.355, 1);
+$mont:'Montserrat', sans-serif;
+$basker:'Baskervville', serif;
+$noto:'Noto Sans KR', sans-serif;
+$notoS:'Noto Serif', serif;
+.noto{font-family:'Noto Sans KR', sans-serif !important;}
+
+@mixin conSize($wd:null, $hg:null, $lh:null){width:$wd; height:$hg; line-height:$lh;}
+@mixin font($sz:null, $wg:null, $ff:null, $co:null){font-size:$sz; font-weight:$wg; font-family:$ff; color:$co}
+@mixin dis-flex($ai:null, $jc:null, $fl:null){display:flex; align-items:$ai; justify-content:$jc; flex-flow:$fl;}
+@mixin dis-grid($num1:null, $num:null){display:grid; grid-template-columns:repeat($num1, $num2 + #{fr})}
+@mixin position($pt:null, $top:null, $right:null, $bottom:null, $left:null, $zd:null){position:$pt; top:$top; right:$right; bottom:$bottom; left:$left; z-index:$zd;}
+@mixin b-txt(){line-height:1.1;  @include font(6vw, 400, $basker, $black);}
+@mixin m-txt(){line-height:1.5; @include font(1.65vw, 500, $mont, $black);}
+@mixin heading-txt(){@include font(3vw, 400, $basker, $red); text-transform:uppercase;} 
+@mixin italic(){font-style:italic;}
+@mixin circle-con(){@include conSize(13.6vw, 13.6vw, null); border:1px solid $gray; border-radius:50%;}
+
+body{margin:0; overflow-x:hidden; background:$basic;}
+*{margin:0; padding:0; box-sizing:border-box;}
+ul, ol{list-style:none;}
+a{text-decoration:none; color:$black;}
+.section-inner{padding:0 8.5vw 0 6vw;}
+
+/*** 헤더 시작 ***/
+.at-header{@include conSize(calc(100% - 5.4vw), null, null); @include position(fixed, 0, null, null, 0, 99); padding:2vw 2vw 2vw 1vw; backdrop-filter:blur(6px);
+    .header-inner{@include dis-flex(flex-start, space-between, null);
+        ul{@include dis-flex(center, null, null); column-gap:4.35vw;
+            li{
+                p{@include font(1.1vw, 400, $basker, $black); text-transform:uppercase;}
+                span{@include font(0.85vw, 400, $noto, $black);}
+            }
+            &:last-child{
+                li{
+                    p{cursor:pointer;}
+                }
+            }
+        }
+    }
+}
+/*** 헤더 끝 ***/ 
+
+/*** 우측 고정 컨텐츠 시작 ***/
+.right-fix{@include conSize(5.4vw, 100%, null); @include position(fixed, 0, 0, null, null, 99); background:$red;}
+/*** 우측 고정 컨텐츠 끝 ***/
+
+/*** 메인 시작 ***/
+// 섹션01
+.area01{
+    .section01{
+        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column);
+            .intro-txt-wrap{
+                h1{@include dis-flex(null, null, null); @include b-txt; text-transform:uppercase;
+                    &:nth-child(2){padding:0 0 0 27vw;
+                        span{@include italic; color:$red;}
+                    }
+                }
+            }
+            .m-txt-wrap{@include dis-flex(center, space-between, null); margin:1.3vw 0 0 0;
+                .txt{@include m-txt;}
+                .next-section-arrow{@include circle-con; @include dis-flex(center, center, null); cursor:pointer;
+                    span{@include conSize(0.2vw, 3vw, null); display:block; position:relative; background:$gray;
+                        &::before, &::after{content:""; @include conSize(0.2vw, 1.5vw, null); @include position(absolute, null, null, -.4vw, null, null); background:inherit;}
+                        &::before{left:.5vw; transform:rotate(45deg);}
+                        &::after{right:.5vw; transform:rotate(-45deg);}
+                    }
+                }
+            }
+        }
+    }
+}
+// 섹션01 끝
+
+// 섹션02
+.area02{background:$black;
+    .section02{
+        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column);
+            .intro-txt-wrap{
+                p{@include heading-txt;}
+                h1{@include b-txt; color:#fff;
+                    &:nth-child(2){padding:0 0 0 7vw; @include italic; color:transparent; -webkit-text-stroke:0.5px #fff;}
+                }
+            }
+            .content-row{@include dis-flex(null, null, null); column-gap:1.5vw; margin:3vw 0 0 0;
+                .open-fold-toggle{flex:1;
+                    .heading-b{@include dis-flex(center, space-between, null); padding:1vw 0; border:1px solid #fff; border-left:0; border-right:0; cursor:pointer;
+                        h1{@include font(4.5vw, 500, $mont, #fff); text-transform:uppercase;}
+                        .open-fold-toggle-arrow{@include conSize(2.2vw, 2.2vw, null); position:relative; @include dis-flex(center, center, null);
+                            span{display:block; position:absolute; background:#fff;
+                                &.row{@include conSize(100%, 5px, null);}
+                                &.column{@include conSize(5px, 100%, null);}
+                            }
+                        }
+                    }
+                    .con{padding:1.5vw 0 0 0;
+                        li{@include dis-flex(center, null, null); position:relative; counter-increment:li-counter; color:#fff;
+                            .fir{@include conSize(14vw, null, null); @include dis-flex(center, null, null); column-gap:0.75vw;
+                                .line{@include conSize(1.6vw, 2px, null); background:#fff;}
+                                .time{@include font(1vw, 500, $mont, null);}
+                            }
+                            .history{@include font(1vw, 300, $noto, null);}
+                            &::before{content:counter(li-counter, decimal-leading-zero); margin:0 0.75vw 0 0; @include font(1.63vw, 300, $notoS, $red);}
+                        }
+                    }
+                }
+                .skils{
+                    .con{@include dis-flex(null, null, column); row-gap:3.2vw; padding:1.9vw 0 0 0;
+                        ul{@include dis-flex(center, space-between, null);
+                            li{@include conSize(100%, null, null);
+                                p{@include font(1vw, 400, $mont, null);}
+                                &:nth-child(2){justify-content:center;}
+                                &:last-child{justify-content:flex-end;}
+                                &::before{display:none;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
