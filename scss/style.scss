@@ -158,7 +158,7 @@ a{text-decoration:none; color:$black;}
             .content-column{padding:7vw 0 0 0;
                 ul{
                     li{@include dis-flex(flex-end, center, null); position:relative; padding:2vw 0; border-bottom:1px solid #fff; cursor:pointer;
-                        p{@include conSize(100%, null, null); @include dis-flex(flex-end, center, null); @include b-txt; font-family:$mont; color:#fff;
+                        p{@include conSize(100%, null, null); @include dis-flex(flex-end, center, null); @include b-txt; font-family:$mont; color:#fff; transition:all .3s $easing;
                             span{@include font(1vw, 400, $mont, $gray);}
                             &.spaceBetween{justify-content:space-between;}
                         }
