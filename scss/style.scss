@@ -35,6 +35,7 @@ $notoS:'Noto Serif', serif;
 }
 @mixin m-txt(){line-height:1.5; @include font(1.65vw, 500, $mont, $black);
     @include responsive-991{font-size:3.5vw;}
+    @include responsive-480{line-height:1.7; font-size:15px;}
 }
 @mixin heading-txt(){@include font(3vw, 400, $basker, $red); text-transform:uppercase;
     @include responsive-991{font-size:5vw;}
@@ -44,12 +45,15 @@ $notoS:'Noto Serif', serif;
 @mixin arrow(){@include conSize(0.2vw, 3vw, null); display:block; position:relative; background:$gray;
     &::before, &::after{content:""; @include conSize(0.2vw, 1.5vw, null); @include position(absolute, null, null, -.4vw, null, null); background:inherit;
         @include responsive-991{@include conSize(4px, 2vw, null);}
+        @include responsive-480{@include conSize(2px, 8px, null);}
     }
     &::before{left:.5vw; transform:rotate(45deg);
         @include responsive-991{left:.7vw}
+        @include responsive-480{left:2.5px;}
     }
     &::after{right:.5vw; transform:rotate(-45deg);
         @include responsive-991{right:.7vw;}
+        @include responsive-480{right:2.5px;}
     }
 }
 @mixin transform(){transform-style:preserve-3d; will-change:transform;}
@@ -83,6 +87,7 @@ a{text-decoration:none; color:$black;}
                 p{@include font(1.1vw, 400, $basker, $black); text-transform:uppercase;
                     @include responsive-1600{font-size:1.6vw;}
                     @include responsive-991{font-size:3vw;}
+                    @include responsive-480{font-size:14px;}
                 }
                 span{@include font(0.85vw, 400, $noto, $black);
                     @include responsive-1600{font-size:1.2vw;}
@@ -138,6 +143,7 @@ a{text-decoration:none; color:$black;}
                 @include responsive-991{margin:7vw 0 0 0;}
             }
             @include responsive-991{height:127vw;}
+            @include responsive-480{height:100vh;}
         }
     }
     // 섹션01 끝
@@ -163,9 +169,11 @@ a{text-decoration:none; color:$black;}
                             span{display:block; position:absolute; background:#fff; transition:all .3s $easing;
                                 &.row{@include conSize(100%, 5px, null);
                                     @include responsive-991{height:3px;}
+                                    @include responsive-480{height:2px;}
                                 }
                                 &.column{@include conSize(5px, 100%, null);
                                     @include responsive-991{width:3px;}
+                                    @include responsive-480{width:2px;}
                                 }
                             }
                             &.exposuer{
@@ -174,7 +182,7 @@ a{text-decoration:none; color:$black;}
                                 }
                             }
                             @include responsive-991{@include conSize(35px, 35px, null);}
-                            @include responsive-480{@include conSize(15px, 15px, null);}
+                            @include responsive-480{@include conSize(12px, 12px, null); margin:0 0 3px 0;}
                         }
                         @include responsive-991{padding:3vw 0;}
                     }
@@ -244,11 +252,11 @@ a{text-decoration:none; color:$black;}
                         p{@include conSize(100%, null, null); @include dis-flex(flex-end, center, null); @include b-txt; font-family:$mont; color:#fff; transition:all .3s $easing;
                             span{@include font(1vw, 400, $mont, $gray);
                                 @include responsive-991{font-size:23px;}
-                                @include responsive-480{font-size:13px;}
+                                @include responsive-480{font-size:11px;}
                             }
                             &.spaceBetween{justify-content:space-between;}
                             @include responsive-991{font-size:9vw;}
-                            @include responsive-480{font-size:28px;}
+                            @include responsive-480{font-size:23px;}
                         }
                         .work-img{@include conSize(18vw, 25vw, null); @include position(absolute, null, null, null, null, 99); @include transform; opacity:0; visibility:hidden; background-size:cover; background-position:center;
                             @include responsive-991{@include conSize(46vw, 57vw, null);}
@@ -258,7 +266,7 @@ a{text-decoration:none; color:$black;}
                             .work-img{opacity:1; visibility:visible;}
                         }
                         @include responsive-991{padding:4vw 0}
-                        @include responsive-480{padding:5vw 0;}
+                        @include responsive-480{padding:12px 0;}
                     }
                 }
             }
@@ -266,17 +274,19 @@ a{text-decoration:none; color:$black;}
                 p{@include conSize(100%, 3.9vw, null); @include dis-flex(null, null, column); @include position(absolute, null, null, null, null, 5); padding:0 3vw; overflow:hidden; @include font(3.23vw, 500, $mont, #fff); transition:all .5s $easing;
                     span{transition:all .5s $easing;}
                     @include responsive-991{height:7vw; padding:0 4vw; font-size:6vw;}
-                    @include responsive-480{height:25px; font-size:21px;}
+                    @include responsive-480{height:23px; padding:0 25px; font-size:19px;}
                 }
                 a{@include conSize(calc(100% - .6vw), 6.5vw, null); @include dis-flex(center, flex-end, null); position:relative; 
                     span{@include arrow; transform:rotate(-90deg); margin:0 3vw 0 0; background:$black;
                         @include responsive-991{@include conSize(4px, 7vw, null); margin:0 5vw 0 0;}
+                        @include responsive-480{@include conSize(2px, 28px, null); margin:0 18px 0 0;}
                     }
                     &::before{content:""; @include conSize(6.5vw, 6.5vw, null); transform-origin:bottom left; @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%); background:$red; border-radius:10vw; transition:width .5s $easing;
                         @include responsive-991{@include conSize(11vw, 11vw, null); top:50%; transform:translateY(-50%);}
+                        @include responsive-480{@include conSize(40px, 40px, null);}
                     }
                     @include responsive-991{width:100%;}
-                    @include responsive-480{width:calc(100% - 3vw);}
+                    
                 }
                 &:hover{
                     p{text-align:right;
@@ -284,6 +294,7 @@ a{text-decoration:none; color:$black;}
                             &:first-child{transform:translateY(100%)}
                             &:last-child{transform:translateY(-100%)}
                         }
+                        @include responsive-480{padding:0 12px;}
                     }
                     a{justify-content:flex-start;
                         span{margin:0 0 0 3vw;
@@ -293,7 +304,7 @@ a{text-decoration:none; color:$black;}
                     }
                 }
                 @include responsive-991{padding:4vw 2vw 4vw 2vw; border-radius:9vw;}
-                @include responsive-480{padding:4vw 4vw 4vw 0; }
+                @include responsive-480{padding:15px 10px 15px 10px; border-width:1px;}
             }
         }
     }
