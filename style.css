@@ -51,6 +51,9 @@ a {
   position: fixed;
   z-index: 9999;
   pointer-events: none;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
 }
 .cursor p {
   width: 2vw;
@@ -153,7 +156,7 @@ a {
 }
 @media (max-width: 480px) {
   .at-header .header-inner ul li p {
-    font-size: 14px;
+    font-size: 11px;
   }
 }
 .at-header .header-inner ul li span {
@@ -185,6 +188,18 @@ a {
     padding: 0.8vw 2vw;
   }
 }
+@media (max-width: 480px) {
+  .at-header .header-inner ul:last-child li {
+    padding: 7px 10px;
+  }
+}
+@media (max-width: 480px) {
+  .at-header .header-inner ul:last-child {
+    -webkit-column-gap: 5px;
+       -moz-column-gap: 5px;
+            column-gap: 5px;
+  }
+}
 @media (max-width: 991px) {
   .at-header .header-inner ul {
     display: none;
@@ -202,6 +217,11 @@ a {
 @media (max-width: 991px) {
   .at-header {
     width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .at-header {
+    padding: 10px;
   }
 }
 
@@ -271,7 +291,6 @@ a {
   overflow: hidden;
 }
 .area01 .section01-inner {
-  height: 53vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -285,6 +304,7 @@ a {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   will-change: transform;
+  padding: 13vw 8.5vw 13vw 6vw;
 }
 .area01 .section01-inner .intro-txt-wrap h1 {
   display: -webkit-box;
@@ -372,7 +392,6 @@ a {
   background: #000;
 }
 .area02 .section02-inner {
-  height: 53vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,6 +402,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  padding: 10vw 8.5vw 10vw 6vw;
 }
 .area02 .section02-inner .intro-txt-wrap p {
   font-size: 3vw;
@@ -729,6 +749,12 @@ a {
     overflow: hidden;
   }
 }
+@media (max-width: 480px) {
+  .area02 .section02-inner {
+    height: auto;
+    padding: 20vw 15px;
+  }
+}
 .area02 .section03-inner .intro-txt-wrap p {
   font-size: 3vw;
   font-weight: 400;
@@ -1015,8 +1041,7 @@ a {
 @media (max-width: 480px) {
   .area02 .section03-inner .sub_link .circle span {
     width: 2px;
-    height: 28px;
-    margin: 0 18px 0 0;
+    height: 24px;
   }
 }
 @media (max-width: 991px) {
@@ -1024,6 +1049,13 @@ a {
     width: 8vw;
     height: 8vw;
     right: 1.5vw;
+  }
+}
+@media (max-width: 480px) {
+  .area02 .section03-inner .sub_link .circle {
+    width: 35px;
+    height: 35px;
+    right: 7px;
   }
 }
 .area02 .section03-inner .sub_link:hover p {
@@ -1054,6 +1086,12 @@ a {
     padding: 0 0 0 5vw;
   }
 }
+@media (max-width: 480px) {
+  .area02 .section03-inner .sub_link:hover .circle {
+    width: calc(100% - 3.6vw);
+    padding: 0 0 0 8vw;
+  }
+}
 @media (max-width: 991px) {
   .area02 .section03-inner .sub_link {
     height: auto;
@@ -1063,7 +1101,7 @@ a {
 }
 @media (max-width: 480px) {
   .area02 .section03-inner .sub_link {
-    padding: 15px 10px 15px 10px;
+    padding: 25px 10px 25px 10px;
     border-width: 1px;
   }
 }
@@ -1097,7 +1135,6 @@ a {
 
 /*** 메인 끝 ***/
 .area03 .section05-inner {
-  height: 53vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1108,6 +1145,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  padding: 10vw 8.5vw 10vw 6vw;
 }
 .area03 .section05-inner .intro-txt-wrap h1 {
   line-height: 1.1;
