@@ -59,8 +59,12 @@ $notoS:'Noto Serif', serif;
 @mixin transform(){transform-style:preserve-3d; will-change:transform;}
 .rl-scroll{@include transform;}
 
-body{margin:0; overflow-x:hidden; background:$basic;}
-*{margin:0; padding:0; box-sizing:border-box; cursor:none !important;}
+body{margin:0; overflow-x:hidden; background:$basic;
+    &.no-cursor{
+        *{cursor:none !important }
+    }
+}
+*{margin:0; padding:0; box-sizing:border-box;}
 ul, ol{list-style:none;}
 a{text-decoration:none; color:$black;}
 .section-inner{padding:0 8.5vw 0 6vw;
@@ -77,6 +81,7 @@ a{text-decoration:none; color:$black;}
         p{background:$basic;}
         span{color:$red}
     }
+    @include responsive-991{display:none;}
 }
 
 /*** 헤더 시작 ***/
@@ -234,7 +239,7 @@ a{text-decoration:none; color:$black;}
                 }
                 @include responsive-991{flex-flow:column; margin:7vw 0 0 0;}
             }
-            @include responsive-991{height:127vw;}
+            @include responsive-991{height:127vw; overflow:hidden;}
         }
     }
     // 섹션02 끝
@@ -270,23 +275,18 @@ a{text-decoration:none; color:$black;}
                     }
                 }
             }
-            .sub_link{@include dis-flex(center, flex-end, null); position:relative; padding:0.6vw 0.6vw 0.6vw 0; border:2px solid #fff; border-radius:4vw; cursor:pointer;
+            .sub_link{@include conSize(null, 8vw, null); @include dis-flex(center, flex-end, null); position:relative; padding:0.6vw; border:2px solid #fff; border-radius:4vw; cursor:pointer;
                 p{@include conSize(100%, 3.9vw, null); @include dis-flex(null, null, column); @include position(absolute, null, null, null, null, 5); padding:0 3vw; overflow:hidden; @include font(3.23vw, 500, $mont, #fff); transition:all .5s $easing;
                     span{transition:all .5s $easing;}
                     @include responsive-991{height:7vw; padding:0 4vw; font-size:6vw;}
                     @include responsive-480{height:23px; padding:0 25px; font-size:19px;}
                 }
-                a{@include conSize(calc(100% - .6vw), 6.5vw, null); @include dis-flex(center, flex-end, null); position:relative; 
-                    span{@include arrow; transform:rotate(-90deg); margin:0 3vw 0 0; background:$black;
-                        @include responsive-991{@include conSize(4px, 7vw, null); margin:0 5vw 0 0;}
+                .circle{@include conSize(6.5vw, 6.5vw, null); @include dis-flex(center, center, null); position:absolute; right:0.6vw; background:$red; border-radius:10vw; transition:width .5s $easing;
+                    span{@include arrow; transform:rotate(-90deg); background:$black;
+                        @include responsive-991{@include conSize(4px, 5vw, null);}
                         @include responsive-480{@include conSize(2px, 28px, null); margin:0 18px 0 0;}
                     }
-                    &::before{content:""; @include conSize(6.5vw, 6.5vw, null); transform-origin:bottom left; @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%); background:$red; border-radius:10vw; transition:width .5s $easing;
-                        @include responsive-991{@include conSize(11vw, 11vw, null); top:50%; transform:translateY(-50%);}
-                        @include responsive-480{@include conSize(40px, 40px, null);}
-                    }
-                    @include responsive-991{width:100%;}
-                    
+                    @include responsive-991{@include conSize(8vw, 8vw, null); right:1.5vw;}
                 }
                 &:hover{
                     p{text-align:right;
@@ -296,14 +296,11 @@ a{text-decoration:none; color:$black;}
                         }
                         @include responsive-480{padding:0 12px;}
                     }
-                    a{justify-content:flex-start;
-                        span{margin:0 0 0 3vw;
-                            @include responsive-991{margin:0 0 0 7vw;}
-                        }
-                        &::before{width:100%; transform:scale(1) translateY(-50%);}
+                    .circle{width:calc(100% - 1.2vw); justify-content:flex-start; padding:0 0 0 3vw;
+                        @include responsive-991{padding:0 0 0 5vw;}
                     }
                 }
-                @include responsive-991{padding:4vw 2vw 4vw 2vw; border-radius:9vw;}
+                @include responsive-991{height:auto; padding:5vw 2vw 5vw 2vw; border-radius:9vw;}
                 @include responsive-480{padding:15px 10px 15px 10px; border-width:1px;}
             }
         }

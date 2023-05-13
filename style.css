@@ -18,13 +18,15 @@ body {
   overflow-x: hidden;
   background: #eee;
 }
+body.no-cursor * {
+  cursor: none !important;
+}
 
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  cursor: none !important;
 }
 
 ul, ol {
@@ -90,6 +92,11 @@ a {
 }
 .cursor.background span {
   color: #d61c45;
+}
+@media (max-width: 991px) {
+  .cursor {
+    display: none;
+  }
 }
 
 /*** 헤더 시작 ***/
@@ -719,6 +726,7 @@ a {
 @media (max-width: 991px) {
   .area02 .section02-inner {
     height: 127vw;
+    overflow: hidden;
   }
 }
 .area02 .section03-inner .intro-txt-wrap p {
@@ -864,6 +872,7 @@ a {
   }
 }
 .area02 .section03-inner .sub_link {
+  height: 8vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -874,7 +883,7 @@ a {
       -ms-flex-pack: end;
           justify-content: flex-end;
   position: relative;
-  padding: 0.6vw 0.6vw 0.6vw 0;
+  padding: 0.6vw;
   border: 2px solid #fff;
   border-radius: 4vw;
   cursor: pointer;
@@ -918,8 +927,8 @@ a {
     font-size: 19px;
   }
 }
-.area02 .section03-inner .sub_link a {
-  width: calc(100% - 0.6vw);
+.area02 .section03-inner .sub_link .circle {
+  width: 6.5vw;
   height: 6.5vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -927,12 +936,17 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  right: 0.6vw;
+  background: #d61c45;
+  border-radius: 10vw;
+  -webkit-transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.area02 .section03-inner .sub_link a span {
+.area02 .section03-inner .sub_link .circle span {
   width: 0.2vw;
   height: 3vw;
   display: block;
@@ -940,10 +954,9 @@ a {
   background: #999;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  margin: 0 3vw 0 0;
   background: #000;
 }
-.area02 .section03-inner .sub_link a span::before, .area02 .section03-inner .sub_link a span::after {
+.area02 .section03-inner .sub_link .circle span::before, .area02 .section03-inner .sub_link .circle span::after {
   content: "";
   width: 0.2vw;
   height: 1.5vw;
@@ -952,95 +965,65 @@ a {
   background: inherit;
 }
 @media (max-width: 991px) {
-  .area02 .section03-inner .sub_link a span::before, .area02 .section03-inner .sub_link a span::after {
+  .area02 .section03-inner .sub_link .circle span::before, .area02 .section03-inner .sub_link .circle span::after {
     width: 4px;
     height: 2vw;
   }
 }
 @media (max-width: 480px) {
-  .area02 .section03-inner .sub_link a span::before, .area02 .section03-inner .sub_link a span::after {
+  .area02 .section03-inner .sub_link .circle span::before, .area02 .section03-inner .sub_link .circle span::after {
     width: 2px;
     height: 8px;
   }
 }
-.area02 .section03-inner .sub_link a span::before {
+.area02 .section03-inner .sub_link .circle span::before {
   left: 0.5vw;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 @media (max-width: 991px) {
-  .area02 .section03-inner .sub_link a span::before {
+  .area02 .section03-inner .sub_link .circle span::before {
     left: 0.7vw;
   }
 }
 @media (max-width: 480px) {
-  .area02 .section03-inner .sub_link a span::before {
+  .area02 .section03-inner .sub_link .circle span::before {
     left: 2.5px;
   }
 }
-.area02 .section03-inner .sub_link a span::after {
+.area02 .section03-inner .sub_link .circle span::after {
   right: 0.5vw;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 @media (max-width: 991px) {
-  .area02 .section03-inner .sub_link a span::after {
+  .area02 .section03-inner .sub_link .circle span::after {
     right: 0.7vw;
   }
 }
 @media (max-width: 480px) {
-  .area02 .section03-inner .sub_link a span::after {
+  .area02 .section03-inner .sub_link .circle span::after {
     right: 2.5px;
   }
 }
 @media (max-width: 991px) {
-  .area02 .section03-inner .sub_link a span {
+  .area02 .section03-inner .sub_link .circle span {
     width: 4px;
-    height: 7vw;
-    margin: 0 5vw 0 0;
+    height: 5vw;
   }
 }
 @media (max-width: 480px) {
-  .area02 .section03-inner .sub_link a span {
+  .area02 .section03-inner .sub_link .circle span {
     width: 2px;
     height: 28px;
     margin: 0 18px 0 0;
   }
 }
-.area02 .section03-inner .sub_link a::before {
-  content: "";
-  width: 6.5vw;
-  height: 6.5vw;
-  -webkit-transform-origin: bottom left;
-          transform-origin: bottom left;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  background: #d61c45;
-  border-radius: 10vw;
-  -webkit-transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
 @media (max-width: 991px) {
-  .area02 .section03-inner .sub_link a::before {
-    width: 11vw;
-    height: 11vw;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-}
-@media (max-width: 480px) {
-  .area02 .section03-inner .sub_link a::before {
-    width: 40px;
-    height: 40px;
-  }
-}
-@media (max-width: 991px) {
-  .area02 .section03-inner .sub_link a {
-    width: 100%;
+  .area02 .section03-inner .sub_link .circle {
+    width: 8vw;
+    height: 8vw;
+    right: 1.5vw;
   }
 }
 .area02 .section03-inner .sub_link:hover p {
@@ -1059,27 +1042,22 @@ a {
     padding: 0 12px;
   }
 }
-.area02 .section03-inner .sub_link:hover a {
+.area02 .section03-inner .sub_link:hover .circle {
+  width: calc(100% - 1.2vw);
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-}
-.area02 .section03-inner .sub_link:hover a span {
-  margin: 0 0 0 3vw;
+  padding: 0 0 0 3vw;
 }
 @media (max-width: 991px) {
-  .area02 .section03-inner .sub_link:hover a span {
-    margin: 0 0 0 7vw;
+  .area02 .section03-inner .sub_link:hover .circle {
+    padding: 0 0 0 5vw;
   }
-}
-.area02 .section03-inner .sub_link:hover a::before {
-  width: 100%;
-  -webkit-transform: scale(1) translateY(-50%);
-          transform: scale(1) translateY(-50%);
 }
 @media (max-width: 991px) {
   .area02 .section03-inner .sub_link {
-    padding: 4vw 2vw 4vw 2vw;
+    height: auto;
+    padding: 5vw 2vw 5vw 2vw;
     border-radius: 9vw;
   }
 }
