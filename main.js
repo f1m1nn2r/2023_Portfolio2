@@ -15,6 +15,18 @@ $("html").easeScroll({
 });
 */
 
+const section_move = document.querySelectorAll('.section_move li');
+const section = document.querySelectorAll('.section');
+for(var i=0; i<section_move.length; i++){
+    var section_offset = section[i].offsetTop;
+    section_move[i].addEventListener('click', function(){
+        window.scrollTo({
+            top:section_offset,
+            behavior:'smooth',
+        })
+    })
+}
+
 const contentColumn_li = document.querySelectorAll('.section03 .content-column ul li');
 var contentColumn_img = new Array();
 for(var i=0; i<contentColumn_li.length; i++){
@@ -77,8 +89,8 @@ for (var i=0; i<headline.length; i++){
                 history[i].classList.remove('exposuer');
                 exposuer_arrow[i].classList.remove('exposuer');
             }else{
-                history[i].classList.add('exposuer');
-                exposuer_arrow[i].classList.add('exposuer');
+                history[i].classList.toggle('exposuer');
+                exposuer_arrow[i].classList.toggle('exposuer');
             }
         }
     });
@@ -119,7 +131,7 @@ window.addEventListener('scroll', function(){
     const firstSection = document.querySelector('.section01-inner');
     const firstIntro = document.querySelector('.section01 .intro-txt-wrap');
     const firstTxt = document.querySelector('.section01 .m-txt-wrap');
-    var yValue = window.pageYOffset * 8 / firstIntro.offsetTop;
+    var yValue = window.pageYOffset * 10 / firstIntro.offsetTop;
     firstSection.style.transform = `translate3d(0, ${yValue}vw, 0)`;
 
     // 스크롤 시 텍스트 opacity 조정
