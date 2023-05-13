@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
 $black:#000;
-$red:#AC2222;
+$red:#d61c45;
 $basic:#eee;
 $gray:#999;
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -35,10 +35,22 @@ $notoS:'Noto Serif', serif;
 .rl-scroll{@include transform;}
 
 body{margin:0; overflow-x:hidden; background:$basic;}
-*{margin:0; padding:0; box-sizing:border-box;}
+*{margin:0; padding:0; box-sizing:border-box; cursor:none !important;}
 ul, ol{list-style:none;}
 a{text-decoration:none; color:$black;}
 .section-inner{padding:0 8.5vw 0 6vw;}
+.cursor{@include position(fixed, null, null, null, null, 9999); pointer-events:none; 
+    p{@include conSize(2vw, 2vw, null); display:block; background:$red; border-radius:50%; transition:all .5s $easing; pointer-events:none;}
+    span{@include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%,-50%); opacity:0; visibility:hidden; @include font(0.8vw, 500, $mont, $basic); pointer-events:none;}
+    &.scale{opacity:.7;
+        p{transform:scale(2)}
+        span{opacity:1; visibility:visible;}
+    }
+    &.background{
+        p{background:$basic;}
+        span{color:$red}
+    }
+}
 
 /*** 헤더 시작 ***/
 .at-header{@include conSize(calc(100% - 5.4vw), null, null); @include position(fixed, 0, null, null, 0, 99); padding:2vw 2vw 2vw 1vw; backdrop-filter:blur(6px); transition:all .5s $easing;
@@ -64,7 +76,7 @@ a{text-decoration:none; color:$black;}
 /*** 우측 고정 컨텐츠 시작 ***/
 .right-fix{@include conSize(5.4vw, 100%, null); @include dis-flex(null, space-between, column); @include position(fixed, 0, 0, null, null, 99); background:$red;
     & > div{writing-mode:vertical-lr}
-    p{@include conSize(100%, 3vw, null); @include dis-flex(null, null, column); position:relative; overflow:hidden; @include font(1vw, 400, $basker, $black);
+    p{@include conSize(100%, 3vw, null); @include dis-flex(center, center, column); position:relative; overflow:hidden; @include font(1vw, 400, $basker, $black);
         span{@include position(absolute, null, null, null, null, null); transition:all .3s $easing;}
     }
 }
@@ -84,9 +96,9 @@ a{text-decoration:none; color:$black;}
             }
             .m-txt-wrap{@include dis-flex(center, space-between, null); @include transform; margin:1.3vw 0 0 0;
                 .txt{@include m-txt;}
-                .next-section-arrow{@include circle-con; cursor:pointer;
+                /*.next-section-arrow{@include circle-con; cursor:pointer;
                     span{@include arrow;}
-                }
+                }*/
             }
         }
     }
@@ -212,7 +224,7 @@ a{text-decoration:none; color:$black;}
                 h1{@include b-txt; text-transform:uppercase;}
                 .txt{margin:2.5vw 0 0 0;
                     a{display:inline-block; position:relative; margin:0 0 1vw 0; @include font(1.63vw, 500, $mont, $black);
-                        &::before{content:""; @include conSize(100%, 2px, null); @include position(absolute, null, null, -4px, 0, null); background:$black; transition:all .5s $easing;}
+                        &::before{content:""; @include conSize(100%, 3px, null); @include position(absolute, null, null, -4px, 0, null); background:$black; transition:all .5s $easing;}
                         &:hover{
                             &::before{width:0; left:auto; right:0;}
                         }

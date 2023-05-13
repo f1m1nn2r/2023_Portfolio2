@@ -1,4 +1,5 @@
 // 부드러운 스크롤 효과, 출처 https://creativestudio.kr/2113
+// 휠 이벤트와 겹쳐져 작동 불가한 현상으로 사용 안 함
 /*$("html").easeScroll();
 $("html").easeScroll({
     frameRate: 60,
@@ -83,14 +84,34 @@ for (var i=0; i<headline.length; i++){
     });
 }
 
-// 마우스 움직임에 맞춰 이미지 이동되도록
+const cursor = document.querySelector('.cursor');
+var enterElement = document.querySelectorAll('.section_move li, .heading-b, a');
+for(var i=0; i<enterElement.length; i++){
+    enterElement[i].addEventListener('mouseover', function(){
+        cursor.classList.add('scale');
+    });
+    enterElement[i].addEventListener('mouseleave', function(){
+        cursor.classList.remove('scale');
+    });
+}
+document.querySelector('.right-fix').addEventListener('mouseover', function(){
+    cursor.classList.add('background');
+});
+document.querySelector('.right-fix').addEventListener('mouseleave', function(){
+    cursor.classList.remove('background');
+});
+
 window.addEventListener('mousemove', function(e){
+    // 커서 움직임에 맞춰 이미지 이동되도록
     var posX = e.clientX / 120;
     var posY = e.clientY / 120;
     const workImg = document.querySelectorAll('.work-img');
     for(var i=0; i<workImg.length; i++){
         workImg[i].style.transform = `translate3d(${posX}vw, ${posY}vw, 0)`;
     }
+
+    // 커서 움직임
+    cursor.style.transform = `matrix(1, 0, 0, 1, ${e.clientX}, ${e.clientY})`;
 });
 
 window.addEventListener('scroll', function(){
@@ -100,16 +121,17 @@ window.addEventListener('scroll', function(){
     const firstTxt = document.querySelector('.section01 .m-txt-wrap');
     var yValue = window.pageYOffset * 8 / firstIntro.offsetTop;
     firstSection.style.transform = `translate3d(0, ${yValue}vw, 0)`;
-    // firstSection과 달리 올라가지 않고 밑에서 겹쳐지는 현상 보여 따로 추가
-    // firstTxt.style.transform = `translate3d(0, ${-yValue / 1.5}vw, 0)`;
 
     // 스크롤 시 텍스트 opacity 조정
-    var opacityValue = 0.7 + (window.scrollY / document.documentElement.scrollHeight);
+    var opacityValue = 0.7 + (window.scrollY || window.pageYOffset / document.documentElement.scrollHeight);
     for(var i=0; i<contentColumn_li.length; i++){
         contentColumn_li[i].firstChild.style.opacity = '0.3';
         // 스크롤이 화면 중앙 지점일 때의 기준
         if(contentColumn_li[i].getBoundingClientRect().top < window.innerHeight / 2){
             contentColumn_li[i].firstChild.style.opacity = opacityValue;
+            if(opacityValue >= 1){
+                contentColumn_li[i].firstChild.style.opacity = '1';
+            }
         }else{
             contentColumn_li[i].firstChild.style.opacity = '0.3';
         }
@@ -121,7 +143,7 @@ window.addEventListener('scroll', function(){
     var RLScrollValue = window.pageYOffset / document.querySelector('.section01 .intro-txt-wrap').offsetTop;
     for(var i=0; i<RLScroll_section.length; i++){
         for(var j=0; j<RLScroll_txt.length; j++){
-            if(window.scrollY >= RLScroll_section[i].offsetTop * 1.3){
+            if(window.scrollY || window.pageYOffset >= RLScroll_section[i].offsetTop * 1.3){
                 if(j % 2 == 0){
                     RLScroll_txt[j].style.transform = `translate3d(${RLScrollValue}vw, 0, 0)`
                 }else if(j % 2 == 1){
@@ -130,9 +152,9 @@ window.addEventListener('scroll', function(){
             }
         }
     }
-
+    /*
     const right_fix_p = document.querySelectorAll('.step_p');
-    const right_fix_span = document.querySelectorAll('.step_span');
+    const right_fix_span = document.querySelectorAll('.step_p .step_span');
     for(var i=0; i<RLScroll_section.length; i++){
         for(var j=0; j<right_fix_span.length; j++){
             var stepValue = right_fix_span[i].scrollHeight;
@@ -145,6 +167,7 @@ window.addEventListener('scroll', function(){
             }
         }
     }
+    */
 });
 
 // 마우스휠 이벤트

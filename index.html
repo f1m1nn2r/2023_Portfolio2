@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="cursor"><p></p><span>CLICK!</span></div>
     <div class="right-fix">
         <div class="top">
             <p class="step_p">
-                <span class="step_span">intro</span>
-                <span class="step_span">about</span>
-                <span class="step_span">art work</span>
-                <span class="step_span">contact</span>
+                <span>intro</span>
+                <span>about</span>
+                <span>art work</span>
+                <span>contact</span>
             </p>
         </div>
         <div class="bottom">
             <p class="step_p">
-                <span class="step_span">intro</span>
-                <span class="step_span">about</span>
-                <span class="step_span">art work</span>
-                <span class="step_span">contact</span>
+                <span>intro</span>
+                <span>about</span>
+                <span>art work</span>
+                <span>contact</span>
             </p>
         </div>
     </div>
@@ -32,11 +33,11 @@
                 <li><p>Kim min joong</p><span>김민중</span></li>
                 <li><p>Web Publisher</p><span>웹 퍼블리셔</span></li>
             </ul>
-            <ul>
-                <li><p>main</p></li>
-                <li><p>about</p></li>
-                <li><p>work</p></li>
-                <li><p>contact</p></li>
+            <ul class="section_move">
+                <li data-direction="first"><p>main</p></li>
+                <li data-direction="top middle"><p>about</p></li>
+                <li data-direction="top bottom"><p>work</p></li>
+                <li data-direction="last"><p>contact</p></li>
             </ul>
         </div>
     </header>
@@ -83,7 +84,7 @@
                             <p>Hi! I’m creative & evolving web publisher.</p>
                             <p>Thank you for visiting my portfolio.</p>
                         </div>
-                        <div class="next-section-arrow"><span></span></div>
+                        <!-- <div class="next-section-arrow"><span></span></div> -->
                     </div>
                 </div>
             </section>
@@ -195,7 +196,7 @@
                     </div>
                 </div>
             </section>
-            <section class="section section04">
+            <section class="section04">
                 <div class="section-inner section04-inner"><div class="bg-circle"></div></div>
             </section>
         </div>
