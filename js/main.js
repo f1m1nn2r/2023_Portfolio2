@@ -14,18 +14,38 @@ if (isMobile()) {
 const section_move = document.querySelectorAll('.section_move li');
 const section = document.querySelectorAll('.section');
 for(var i=0; i<section_move.length; i++){
-    var section_offset = section[i].offsetTop;
-    section_move[i].addEventListener('click', function(){
+    section_move[0].addEventListener('click', function(e){
         window.scrollTo({
-            top:section_offset,
+            top:section[0].offsetTop,
             behavior:'smooth',
-        })
+        });
+        e.preventDefault();
+    })
+    section_move[1].addEventListener('click', function(e){
+        window.scrollTo({
+            top:section[1].offsetTop,
+            behavior:'smooth',
+        });
+        e.preventDefault();
+    })
+    section_move[2].addEventListener('click', function(e){
+        window.scrollTo({
+            top:section[2].offsetTop,
+            behavior:'smooth',
+        });
+        e.preventDefault();
+    })
+    section_move[3].addEventListener('click', function(e){
+        window.scrollTo({
+            top:document.documentElement.scrollHeight,
+            behavior:'smooth',
+        });
+        e.preventDefault();
     })
 }
 
 const contentColumn_li = document.querySelectorAll('.section03 .content-column ul li');
 function workImgCreate(){
-    var contentColumn_img = new Array();
     for(var i=0; i<contentColumn_li.length; i++){
         var contentColumn_div = document.createElement('div');
         contentColumn_div.setAttribute('class', 'work-img');
@@ -67,7 +87,7 @@ function workLinkMove(){
     for(var i=0; i<contentColumn_li.length; i++){
         contentColumn_li[i].addEventListener('click', function(){
             const link = document.querySelector('.sub_link');
-            var linkLocation = window.pageYOffset + link.getBoundingClientRect().top;
+            var linkLocation = window.pageYOffset + link.getBoundingClientRect().top - 350;
             window.scrollTo({
                 top:linkLocation,
                 behavior:'smooth',
@@ -141,6 +161,16 @@ window.addEventListener('mousemove', function(e){
 });
 
 window.addEventListener('scroll', function(){
+    for(var i=0; i<section.length; i++){
+        const step = document.querySelector('.step_p span');
+        if(window.pageYOffset >= section[1].offsetTop){
+            step.innerHTML = section[1].getAttribute('data-menu');
+        }else if(window.pageYOffset >= section[2].offsetTop){
+            step.innerHTML = section[2].getAttribute('data-menu');
+        }
+        
+    }
+    
     // 스크롤 시 첫 번째 섹션 y값 조정
     const firstSection = document.querySelector('.section01-inner');
     const firstIntro = document.querySelector('.section01 .intro-txt-wrap');
@@ -153,7 +183,7 @@ window.addEventListener('scroll', function(){
     }
 
     // 스크롤 시 텍스트 opacity 조정
-    var opacityValue = 0.7 + (window.scrollY || window.pageYOffset / document.documentElement.scrollHeight);
+    var opacityValue = 0.7 + (window.pageYOffset / document.documentElement.scrollHeight);
     for(var i=0; i<contentColumn_li.length; i++){
         contentColumn_li[i].firstChild.style.opacity = '0.3';
         // 스크롤이 화면 중앙 지점일 때의 기준
@@ -173,7 +203,7 @@ window.addEventListener('scroll', function(){
     var RLScrollValue = window.pageYOffset / document.querySelector('.section01 .intro-txt-wrap').offsetTop;
     for(var i=0; i<RLScroll_section.length; i++){
         for(var j=0; j<RLScroll_txt.length; j++){
-            if(window.scrollY || window.pageYOffset >= RLScroll_section[i].offsetTop * 1.3){
+            if(window.pageYOffset >= RLScroll_section[i].offsetTop * 1.3){
                 if(!isMobile()){
                     if(j % 2 == 0){
                         RLScroll_txt[j].style.transform = `translate3d(${RLScrollValue}vw, 0, 0)`
@@ -190,6 +220,18 @@ window.addEventListener('scroll', function(){
             }
         }
     }
+
+    const section04 = document.querySelector('.section04');
+    const bgCircle = document.querySelector('.bg-circle');
+    bgCircle.style.width = 10 + 'vmax';
+    bgCircle.style.height = 10 + 'vmax';
+    var circleValue = (window.scrollY / document.querySelector('.right-fix').offsetWidth) * 2;
+    if(window.scrollY >= section04.offsetTop){
+        bgCircle.style.width = circleValue + 'vmax';
+        bgCircle.style.height = circleValue + 'vmax';
+        document.querySelector('.area03').style.transform = `translate3d(0, ${-circleValue / 4}vw, 0)`
+    }
+    
     /*
     const right_fix_p = document.querySelectorAll('.step_p');
     const right_fix_span = document.querySelectorAll('.step_p .step_span');
@@ -208,7 +250,6 @@ window.addEventListener('scroll', function(){
     */
 });
 
-// 마우스휠 이벤트
 window.addEventListener('wheel', function(e){
     const header = document.querySelector('.at-header');
     if(e.deltaY > 0){

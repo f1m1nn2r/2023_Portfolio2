@@ -89,7 +89,7 @@ a{text-decoration:none; color:$black;}
     .header-inner{@include dis-flex(flex-start, space-between, null);
         ul{@include dis-flex(center, null, null); column-gap:4.35vw;
             li{
-                p{@include font(1.1vw, 400, $basker, $black); text-transform:uppercase;
+                a{@include font(1.1vw, 400, $basker, $black); text-transform:uppercase;
                     @include responsive-1600{font-size:1.6vw;}
                     @include responsive-991{font-size:3vw;}
                     @include responsive-480{font-size:11px;}
@@ -122,9 +122,9 @@ a{text-decoration:none; color:$black;}
 
 /*** 우측 고정 컨텐츠 시작 ***/
 .right-fix{@include conSize(5.4vw, 100%, null); @include dis-flex(null, space-between, column); @include position(fixed, 0, 0, null, null, 99); background:$red;
-    & > div{writing-mode:vertical-lr}
-    p{@include conSize(100%, 3vw, null); @include dis-flex(center, center, column); position:relative; overflow:hidden; @include font(1vw, 400, $basker, $black);
-        span{@include position(absolute, null, null, null, null, null); transition:all .3s $easing;}
+    & > div{height:100%; writing-mode:vertical-lr}
+    p{@include conSize(100%, 100%, null); @include dis-flex(center, space-between, null); position:relative; overflow:hidden; @include font(1vw, 400, $basker, $black);
+        span{display:block; transition:all .3s $easing;}
     }
     @include responsive-991{display:none;}
 }
@@ -160,7 +160,7 @@ a{text-decoration:none; color:$black;}
 .area02{background:$black;
     // 섹션02
     .section02{
-        &-inner{@include dis-flex(null, center, column); padding:10vw 8.5vw 10vw 6vw;
+        &-inner{@include dis-flex(null, center, column); padding:10vw 8.5vw 14vw 6vw;
             .intro-txt-wrap{
                 p{@include heading-txt;}
                 h1{@include b-txt; color:#fff;
@@ -249,7 +249,7 @@ a{text-decoration:none; color:$black;}
     // 섹션02 끝
 
     // 섹션03
-    .section03{
+    .section03{padding:0 0 30vw 0;
         &-inner{
             .intro-txt-wrap{
                 p{@include heading-txt;}
@@ -314,16 +314,16 @@ a{text-decoration:none; color:$black;}
     // 섹션03 끝
 
     // 섹션04
-    .section04{position:relative;
-        &-inner{@include conSize(null, 53vw, null); @include dis-flex(null, center, column);
-            .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%;}
+    .section04{height:250vh; position:relative;
+        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column); @include position(sticky, 0, null, null, null, null); overflow:hidden;
+            .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$red; border-radius:50%; transition:all .3s $easing;}
         }
     }
     // 섹션04 끝
 }
 /*** 메인 끝 ***/
 
-.area03{
+.area03{@include conSize(100%, null, null); @include position(absolute, null, null, null, null, null); @include transform; background:$basic; 
     .section05{
         &-inner{ @include dis-flex(null, center, column); padding:10vw 8.5vw 10vw 6vw;
             .intro-txt-wrap{

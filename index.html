@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>웹 퍼블리셔 포트폴리오</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./img/favicon.ico/favicon-32x32.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff"> 
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
@@ -15,20 +15,7 @@
     <div class="cursor"><p></p><span>CLICK!</span></div>
     <div class="right-fix">
         <div class="top">
-            <p class="step_p">
-                <span>intro</span>
-                <span>about</span>
-                <span>art work</span>
-                <span>contact</span>
-            </p>
-        </div>
-        <div class="bottom">
-            <p class="step_p">
-                <span>intro</span>
-                <span>about</span>
-                <span>art work</span>
-                <span>contact</span>
-            </p>
+            <p class="step_p"><span>INTRO</span><span>INTRO</span></p>
         </div>
     </div>
     <header class="at-header">
@@ -38,16 +25,16 @@
                 <li><p>Web Publisher</p><span>웹 퍼블리셔</span></li>
             </ul>
             <ul class="section_move">
-                <li data-direction="first"><p>main</p></li>
-                <li data-direction="top middle"><p>about</p></li>
-                <li data-direction="top bottom"><p>work</p></li>
-                <li data-direction="last"><p>contact</p></li>
+                <li><a href="#main">main</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#work">work</a></li>
+                <li><a href="#contact">contact</a></li>
             </ul>
         </div>
     </header>
-    <div class="container_wide">
-        <div class="area01">
-            <section class="section section01 txt-scroll-section">
+    <div class="container_wide" data-scrollbar>
+        <div class="area01" id="main">
+            <section class="section section01 txt-scroll-section" data-menu="INTRO">
                 <div class="section-inner section01-inner">
                     <div class="intro-txt-wrap">
                         <h1 class="r-scroll rl-scroll">
@@ -93,8 +80,8 @@
                 </div>
             </section>
         </div>
-        <div class="area02">
-            <section class="section section02 txt-scroll-section">
+        <div class="area02" >
+            <section class="section section02 txt-scroll-section" id="about" data-menu="ABOUT ME">
                 <div class="section-inner section02-inner">
                     <div class="intro-txt-wrap">
                         <p class="r-scroll rl-scroll">about me</p>
@@ -171,7 +158,7 @@
                     </div>
                 </div>
             </section>
-            <section class="section section03 txt-scroll-section">
+            <section class="section section03 txt-scroll-section" id="work" data-menu="ART WORK">
                 <div class="section-inner section03-inner">
                     <div class="intro-txt-wrap">
                         <p class="rl-scroll">art work</p>
@@ -204,8 +191,8 @@
                 <div class="section-inner section04-inner"><div class="bg-circle"></div></div>
             </section>
         </div>
-        <div class="area03">
-            <section class="section section05 txt-scroll-section">
+        <div class="area03" id="contact">
+            <section class="section section05 txt-scroll-section" data-menu="CONTACT ME">
                 <div class="section-inner section05-inner">
                     <div class="intro-txt-wrap">
                         <h1>get in touch</h1>
@@ -221,9 +208,6 @@
             </section>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="./jquery.easeScroll.js"></script>
-    <script src="./main.js"></script>
-    
+    <script src="./js/main.js"></script>
 </body>
 </html>
