@@ -227,9 +227,14 @@ window.addEventListener('scroll', function(){
     bgCircle.style.height = 10 + 'vmax';
     var circleValue = (window.scrollY / document.querySelector('.right-fix').offsetWidth) * 2;
     if(window.scrollY >= section04.offsetTop){
-        bgCircle.style.width = circleValue + 'vmax';
-        bgCircle.style.height = circleValue + 'vmax';
-        document.querySelector('.area03').style.transform = `translate3d(0, ${-circleValue / 4}vw, 0)`
+        if(!isMobile()){
+            bgCircle.style.width = circleValue + 'vmax';
+            bgCircle.style.height = circleValue + 'vmax';
+            document.querySelector('.area03').style.transform = `translate3d(0, ${-circleValue / 4}vw, 0)`
+        }else{
+            bgCircle.style.width = window.scrollY / 10 + 'vmax';
+            bgCircle.style.height = window.scrollY / 10 + 'vmax';
+        }
     }
     
     /*
