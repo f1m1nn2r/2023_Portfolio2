@@ -11,6 +11,26 @@ if (isMobile()) {
     document.body.style.cursor = 'none';
 }
 
+const cursor = document.querySelector('.cursor');
+var enterElement = document.querySelectorAll('.section_move li, .heading-b, a, .section03 .content-column ul li');
+function cursorMove(){
+    for(var i=0; i<enterElement.length; i++){
+        enterElement[i].addEventListener('mouseover', function(){
+            cursor.classList.add('scale');
+        });
+        enterElement[i].addEventListener('mouseleave', function(){
+            cursor.classList.remove('scale');
+        });
+    }
+    document.querySelector('.right-fix').addEventListener('mouseover', function(){
+        cursor.classList.add('background');
+    }); 
+    document.querySelector('.right-fix').addEventListener('mouseleave', function(){
+        cursor.classList.remove('background');
+    });
+}
+if(!isMobile()){cursorMove();}
+
 const section_move = document.querySelectorAll('.section_move li');
 const section = document.querySelectorAll('.section');
 for(var i=0; i<section_move.length; i++){
@@ -44,7 +64,30 @@ for(var i=0; i<section_move.length; i++){
     })
 }
 
-const contentColumn_li = document.querySelectorAll('.section03 .content-column ul li');
+// career, skils 클릭 시
+const headline = document.querySelectorAll('.heading-b');
+const history = document.querySelectorAll('.history_con');
+const exposuer_arrow = document.querySelectorAll('.open-fold-toggle-arrow');
+for (var i=0; i<headline.length; i++){
+    headline[i].addEventListener('click', function(){
+        var this_headline = this;
+        for(var i=0; i<headline.length; i++){
+            if(this_headline != headline[i]){
+                history[i].classList.remove('exposuer');
+                exposuer_arrow[i].classList.remove('exposuer');
+            }else if(this_headline.classList.contains('exposuer')){
+                history[i].classList.remove('exposuer');
+                exposuer_arrow[i].classList.remove('exposuer');
+            }else{
+                history[i].classList.toggle('exposuer');
+                exposuer_arrow[i].classList.toggle('exposuer');
+            }
+        }
+    });
+}
+
+const contentColumn_li = document.querySelectorAll('.section03 .content-column > ul > li');
+const contentColumn_headLine = document.querySelectorAll('.section03 .headline p');
 function workImgCreate(){
     for(var i=0; i<contentColumn_li.length; i++){
         var contentColumn_div = document.createElement('div');
@@ -97,55 +140,6 @@ function workLinkMove(){
 }
 workLinkMove();
 
-// career, skils 클릭 시
-const headline = document.querySelectorAll('.heading-b');
-const history = document.querySelectorAll('.history_con');
-const exposuer_arrow = document.querySelectorAll('.open-fold-toggle-arrow');
-for (var i=0; i<headline.length; i++){
-    headline[i].addEventListener('click', function(){
-        var this_headline = this;
-        for(var i=0; i<headline.length; i++){
-            if(this_headline != headline[i]){
-                history[i].classList.remove('exposuer');
-                exposuer_arrow[i].classList.remove('exposuer');
-            }else if(this_headline.classList.contains('exposuer')){
-                history[i].classList.remove('exposuer');
-                exposuer_arrow[i].classList.remove('exposuer');
-            }else{
-                history[i].classList.toggle('exposuer');
-                exposuer_arrow[i].classList.toggle('exposuer');
-            }
-        }
-    });
-}
-
-const cursor = document.querySelector('.cursor');
-var enterElement = document.querySelectorAll('.section_move li, .heading-b, a');
-function cursorMove(){
-    for(var i=0; i<enterElement.length; i++){
-        enterElement[i].addEventListener('mouseover', function(){
-            cursor.classList.add('scale');
-        });
-        enterElement[i].addEventListener('mouseleave', function(){
-            cursor.classList.remove('scale');
-        });
-    }
-    document.querySelector('.right-fix').addEventListener('mouseover', function(){
-        cursor.classList.add('background');
-    }); 
-    document.querySelector('.right-fix').addEventListener('mouseleave', function(){
-        cursor.classList.remove('background');
-    });
-
-    document.querySelector('.sub_link').addEventListener('mouseover', function(){
-        cursor.classList.add('background');
-    }); 
-    document.querySelector('.sub_link').addEventListener('mouseleave', function(){
-        cursor.classList.remove('background');
-    });
-}
-if(!isMobile()){cursorMove();}
-
 window.addEventListener('mousemove', function(e){
     // 커서 움직임에 맞춰 이미지 이동되도록
     if(!isMobile()){
@@ -169,32 +163,6 @@ window.addEventListener('scroll', function(){
             step.innerHTML = section[2].getAttribute('data-menu');
         }
         
-    }
-    
-    // 스크롤 시 첫 번째 섹션 y값 조정
-    const firstSection = document.querySelector('.section01-inner');
-    const firstIntro = document.querySelector('.section01 .intro-txt-wrap');
-    const firstTxt = document.querySelector('.section01 .m-txt-wrap');
-    var yValue = window.pageYOffset * 10 / firstIntro.offsetTop;
-    if(!isMobile()){
-        firstSection.style.transform = `translate3d(0, ${yValue}vw, 0)`;
-    }else{
-        firstSection.style.transform = `translate3d(0, ${yValue * 3}vw, 0)`;
-    }
-
-    // 스크롤 시 텍스트 opacity 조정
-    var opacityValue = 0.7 + (window.pageYOffset / document.documentElement.scrollHeight);
-    for(var i=0; i<contentColumn_li.length; i++){
-        contentColumn_li[i].firstChild.style.opacity = '0.3';
-        // 스크롤이 화면 중앙 지점일 때의 기준
-        if(contentColumn_li[i].getBoundingClientRect().top < window.innerHeight / 2){
-            contentColumn_li[i].firstChild.style.opacity = opacityValue;
-            if(opacityValue >= 1){
-                contentColumn_li[i].firstChild.style.opacity = '1';
-            }
-        }else{
-            contentColumn_li[i].firstChild.style.opacity = '0.3';
-        }
     }
 
     // 스크롤 시 텍스트 좌 우 이동 애니메이션
@@ -220,6 +188,32 @@ window.addEventListener('scroll', function(){
             }
         }
     }
+    
+    // 스크롤 시 첫 번째 섹션 y값 조정
+    const firstSection = document.querySelector('.section01-inner');
+    const firstIntro = document.querySelector('.section01 .intro-txt-wrap');
+    const firstTxt = document.querySelector('.section01 .m-txt-wrap');
+    var yValue = window.pageYOffset * 10 / firstIntro.offsetTop;
+    if(!isMobile()){
+        firstSection.style.transform = `translate3d(0, ${yValue}vw, 0)`;
+    }else{
+        firstSection.style.transform = `translate3d(0, ${yValue * 3}vw, 0)`;
+    }
+
+    // 스크롤 시 텍스트 opacity 조정
+    var opacityValue = 0.7 + (window.pageYOffset / document.documentElement.scrollHeight);
+    for(var i=0; i<contentColumn_li.length; i++){
+        contentColumn_headLine[i].style.opacity = '0.3';
+        // 스크롤이 화면 중앙 지점일 때의 기준
+        if(contentColumn_headLine[i].getBoundingClientRect().top < window.innerHeight / 2){
+            contentColumn_headLine[i].style.opacity = opacityValue;
+            if(opacityValue >= 1){
+                contentColumn_headLine[i].style.opacity = '1';
+            }
+        }else{
+            contentColumn_headLine[i].style.opacity = '0.3';
+        }
+    }
 
     const section04 = document.querySelector('.section04');
     const bgCircle = document.querySelector('.bg-circle');
@@ -236,23 +230,6 @@ window.addEventListener('scroll', function(){
             bgCircle.style.height = window.scrollY / 10 + 'vmax';
         }
     }
-    
-    /*
-    const right_fix_p = document.querySelectorAll('.step_p');
-    const right_fix_span = document.querySelectorAll('.step_p .step_span');
-    for(var i=0; i<RLScroll_section.length; i++){
-        for(var j=0; j<right_fix_span.length; j++){
-            var stepValue = right_fix_span[i].scrollHeight;
-            right_fix_p[i].style.width = right_fix_span[i].scrollWidth + 'px'
-            right_fix_span[i].style.transform = `translate3d(${stepValue}px, 0, 0)`;
-            if(window.scrollY >= RLScroll_section[i].offsetTop){
-                right_fix_span[i].style.transform = `translate3d(${-stepValue}px, 0, 0)`
-            }else{
-                right_fix_span[i].style.transform = `translate3d(0, 0, 0)`
-            }
-        }
-    }
-    */
 });
 
 window.addEventListener('wheel', function(e){
