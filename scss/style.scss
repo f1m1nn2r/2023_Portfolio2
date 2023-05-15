@@ -163,7 +163,7 @@ a{text-decoration:none; color:$black;}
                 }*/
                 @include responsive-991{margin:7vw 0 0 0;}
             }
-            @include responsive-991{height:127vw;}
+            @include responsive-991{height:127vw; padding:13vw 15px;}
             @include responsive-480{height:100vh; padding:0 15px;}
         }
     }

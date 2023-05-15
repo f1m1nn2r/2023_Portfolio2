@@ -401,6 +401,7 @@ a {
 @media (max-width: 991px) {
   .area01 .section01-inner {
     height: 127vw;
+    padding: 13vw 15px;
   }
 }
 @media (max-width: 480px) {
