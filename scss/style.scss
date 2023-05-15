@@ -39,7 +39,7 @@ $notoS:'Noto Serif', serif;
 @mixin m-txt(){line-height:1.5; @include font(1.65vw, 500, $mont, $black);
     @include responsive-991{font-size:3.5vw;}
     @include responsive-720{line-height:1.7; font-size:17px;}
-    @include responsive-480{font-size:15px;}
+    @include responsive-480{font-size:13px;}
 }
 @mixin heading-txt(){@include font(3vw, 400, $basker, $red); text-transform:uppercase;
     @include responsive-991{font-size:5vw;}
@@ -118,7 +118,7 @@ a{text-decoration:none; color:$black;}
             &:last-child{column-gap:2.35vw;
                 li{padding:0.5vw 1vw; background:$basic; border-radius:5vw;
                     @include responsive-991{padding:0.8vw 2vw;}
-                    @include responsive-480{padding:7px 10px;}
+                    @include responsive-480{padding:4px 8px;}
                 }
                 @include responsive-480{column-gap:5px;}
             }
@@ -126,9 +126,10 @@ a{text-decoration:none; color:$black;}
                 &:last-child{@include conSize(100%, null, null); @include dis-flex(null, flex-end, null);}
             }
         }
+        @include responsive-480{padding:10px;}
     }
     @include responsive-991{width:100%;}
-    @include responsive-480{padding:10px;}
+    @include responsive-480{padding:0}
 }
 /*** 헤더 끝 ***/ 
 
@@ -163,7 +164,7 @@ a{text-decoration:none; color:$black;}
                 }*/
                 @include responsive-991{margin:7vw 0 0 0;}
             }
-            @include responsive-991{height:127vw; padding:13vw 15px;}
+            @include responsive-991{padding:18vw 15px;}
             @include responsive-480{height:100vh; padding:0 15px;}
         }
     }
@@ -217,7 +218,7 @@ a{text-decoration:none; color:$black;}
                                 .time{@include font(1vw, 500, $mont, null);
                                     @include responsive-991{font-size:20px;}
                                     @include responsive-720{font-size:15px;}
-                                    @include responsive-480{font-size:14px;}
+                                    @include responsive-480{font-size:13px;}
                                 }
                                 @include responsive-991{width:250px;}
                                 @include responsive-480{width:92%; column-gap:10px;}
@@ -230,7 +231,7 @@ a{text-decoration:none; color:$black;}
                             &::before{content:counter(li-counter, decimal-leading-zero); margin:0 0.75vw 0 0; @include font(1.63vw, 300, $notoS, $red);
                                 @include responsive-991{font-size:26px;}
                                 @include responsive-720{font-size:21px;}
-                                @include responsive-480{width:8%; margin:0; font-size:16px;}
+                                @include responsive-480{width:8%; margin:0; font-size:15px;}
                             }
                             @include responsive-991{margin:0 0 10px 0;
                                 &:last-child{margin:0;}
@@ -249,7 +250,7 @@ a{text-decoration:none; color:$black;}
                                 p{@include font(1vw, 400, $mont, null);
                                     @include responsive-991{font-size:20px;}
                                     @include responsive-720{font-size:15px;}
-                                    @include responsive-480{font-size:14px}
+                                    @include responsive-480{font-size:13px}
                                 }
                                 &:nth-child(2){justify-content:center;}
                                 &:last-child{justify-content:flex-end;}
@@ -281,7 +282,7 @@ a{text-decoration:none; color:$black;}
                                 span{@include font(1vw, 400, $mont, $gray);
                                     @include responsive-991{font-size:23px;}
                                     @include responsive-720{font-size:17px;}
-                                    @include responsive-480{font-size:11px;}
+                                    @include responsive-480{font-size:10px;}
                                 }
                                 &.spaceBetween{justify-content:space-between;}
                                 @include responsive-991{font-size:9vw;}
@@ -339,45 +340,43 @@ a{text-decoration:none; color:$black;}
     // 섹션04
     .section04{height:250vh; position:relative;
         &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column); @include position(sticky, 0, null, null, null, null); overflow:hidden;
-            .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$red; border-radius:50%; transition:all .3s $easing;}
+            .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%; transition:all .3s $easing;}
+            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); @include position(sticky, 0, null, null, null, null); @include transform;
+                .txt{
+                    h1{margin:0 0 2.5vw 0; @include b-txt; text-transform:uppercase;}
+                    p{@include font(1vw, 400, $noto, $black);
+                        @include responsive-991{font-size:2.5vw;}
+                        @include responsive-720{font-size:17px;}
+                        @include responsive-480{font-size:13px;}
+                        a{display:inline-block; position:relative; margin:0 0 1vw 0; @include font(1.63vw, 500, $mont, $black);
+                            &::before{content:""; @include conSize(100%, 3px, null); @include position(absolute, null, null, -4px, 0, null); background:$black; transition:all .5s $easing;
+                                @include responsive-720{height:2px;}
+                            }
+                            &:hover{
+                                &::before{width:0; left:auto; right:0;}
+                            }
+                            @include responsive-991{margin:0 0px 15px 0; font-size:2.5vw;}
+                            @include responsive-720{margin:0 0px 10px 0; font-size:17px;}
+                            @include responsive-480{font-size:13px;}
+                        }
+                    }
+                    @include responsive-480{margin:15px 0 0 0;}
+                }
+                .mail{@include circle-con; margin:0 auto; margin-right:0; margin-top:11vw;
+                    img{width:auto;
+                        @include responsive-720{height:45px;}
+                        @include responsive-480{height:32px;}
+                    }
+                }
+            }
         }
+        @include responsive-991{height:300vw;}
+        @include responsive-720{height:210vw;}
+        @include responsive-480{height:300vw;}
     }
     // 섹션04 끝
 }
 
-.area03{@include conSize(100%, null, null); @include position(absolute, null, null, null, null, null); @include transform; background:$basic; 
-    .section05{
-        &-inner{@include dis-flex(null, center, column); padding:10vw 8.5vw 10vw 6vw;
-            .intro-txt-wrap{
-                h1{@include b-txt; text-transform:uppercase;}
-                .txt{margin:2.5vw 0 0 0;
-                    a{display:inline-block; position:relative; margin:0 0 1vw 0; @include font(1.63vw, 500, $mont, $black);
-                        &::before{content:""; @include conSize(100%, 3px, null); @include position(absolute, null, null, -4px, 0, null); background:$black; transition:all .5s $easing;
-                            @include responsive-720{height:2px;}
-                        }
-                        &:hover{
-                            &::before{width:0; left:auto; right:0;}
-                        }
-                        @include responsive-991{margin:0 0px 15px 0; font-size:2.5vw;}
-                        @include responsive-720{margin:0 0px 10px 0; font-size:17px;}
-                        @include responsive-480{font-size:14px;}
-                    }
-                    p{@include font(1vw, 400, $noto, $black);
-                        @include responsive-991{font-size:2.5vw;}
-                        @include responsive-720{font-size:17px;}
-                        @include responsive-480{font-size:15px;}
-                    }
-                }
-            }
-            .mail{@include circle-con; margin:0 auto; margin-right:0; margin-top:11vw;
-                img{width:auto;
-                    @include responsive-720{height:45px;}
-                    @include responsive-480{height:32px;}
-                }
-            }
-            @include responsive-991{height:127vw; row-gap:12vw; padding:0 15px;}
-            @include responsive-480{height:100vh;}
-        }
-    }
-}
+
+
 /*** 메인 끝 ***/

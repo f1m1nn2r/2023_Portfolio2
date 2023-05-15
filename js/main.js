@@ -3,18 +3,19 @@ function isMobile(){
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 if (isMobile()) {
-    // 모바일이면 실행될 코드 들어가는 곳
-    document.body.classList.remove('no-cursor');
+    document.querySelector('.cursor').style.display = 'none';
 } else {
     // 모바일이 아니면 실행될 코드 들어가는 곳
     document.body.classList.add('no-cursor');
     document.body.style.cursor = 'none';
+    /*
+    window.onresize = function(){
+        document.location.reload();
+    }
+    */
 }
 
-window.onresize = function(){
-    document.location.reload();
-}
-
+const rightFix = document.querySelector('.right-fix');
 const cursor = document.querySelector('.cursor');
 var enterElement = document.querySelectorAll('.section_move li, .heading-b, a, .section03 .content-column ul li');
 function cursorMove(){
@@ -26,10 +27,10 @@ function cursorMove(){
             cursor.classList.remove('scale');
         });
     }
-    document.querySelector('.right-fix').addEventListener('mouseover', function(){
+    rightFix.addEventListener('mouseover', function(){
         cursor.classList.add('background');
     }); 
-    document.querySelector('.right-fix').addEventListener('mouseleave', function(){
+    rightFix.addEventListener('mouseleave', function(){
         cursor.classList.remove('background');
     });
 }
@@ -151,7 +152,11 @@ window.addEventListener('mousemove', function(e){
         var posY = e.clientY / 120;
         const workImg = document.querySelectorAll('.work-img');
         for(var i=0; i<workImg.length; i++){
-            workImg[i].style.transform = `translate3d(${posX}vw, ${posY}vw, 0)`;
+            if(991 > window.innerWidth){
+                workImg[i].style.transform = `translate3d(${e.clientX / 60}vw, ${e.clientY / 60}vw, 0)`;
+            }else{
+                workImg[i].style.transform = `translate3d(${posX}vw, ${posY}vw, 0)`;
+            }
         }
 
         cursor.style.transform = `matrix(1, 0, 0, 1, ${e.clientX}, ${e.clientY})`;
@@ -225,17 +230,33 @@ window.addEventListener('scroll', function(){
 
     const section04 = document.querySelector('.section04');
     const bgCircle = document.querySelector('.bg-circle');
+    const stickyWrap = document.querySelector('.section04 .intro-txt-wrap');
     bgCircle.style.width = 10 + 'vmax';
     bgCircle.style.height = 10 + 'vmax';
-    var circleValue = (window.scrollY / document.querySelector('.right-fix').offsetWidth) * 2;
+    stickyWrap.style.transform = `translate3d(${100}vw, 0, 0)`
+    
     if(window.scrollY >= section04.offsetTop){
         if(!isMobile()){
-            bgCircle.style.width = circleValue + 'vmax';
-            bgCircle.style.height = circleValue + 'vmax';
-            document.querySelector('.area03').style.transform = `translate3d(0, ${-circleValue / 4}vw, 0)`
+            if(991 >= window.innerWidth){
+                bgCircle.style.width = (document.documentElement.scrollHeight + window.pageYOffset / 1.2) / document.querySelector('.at-header').scrollHeight + 'vmax';
+                bgCircle.style.height = (document.documentElement.scrollHeight + window.pageYOffset / 1.2) / document.querySelector('.at-header').scrollHeight + 'vmax';
+            }else{
+                var circleValue = (window.pageYOffset / rightFix.offsetWidth) * 2;
+                var sticky = 96;
+                sticky -= (window.pageYOffset / rightFix.offsetWidth) * 1.5;
+                bgCircle.style.width = circleValue + 'vmax';
+                bgCircle.style.height = circleValue + 'vmax';
+                stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
+                if(0 >= sticky){
+                    stickyWrap.style.transform = `translate3d(0, 0, 0)`;
+                }
+            }
         }else{
-            bgCircle.style.width = window.scrollY / 10 + 'vmax';
-            bgCircle.style.height = window.scrollY / 10 + 'vmax';
+            bgCircle.style.width = window.scrollY / 15 + 'vmax';
+            bgCircle.style.height = window.scrollY / 15 + 'vmax';
+            var mSticky = 50;
+            mSticky -= window.pageYOffset / document.querySelector('.at-header').scrollHeight;
+            stickyWrap.style.transform = `translate3d(${mSticky}vw, 0, 0)`;
         }
     }
 });
