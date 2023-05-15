@@ -115,6 +115,11 @@ a {
 .cursor.background span {
   color: #d61c45;
 }
+@media (max-width: 480px) {
+  .cursor {
+    display: none;
+  }
+}
 
 /*** 헤더 시작 ***/
 .at-header {
