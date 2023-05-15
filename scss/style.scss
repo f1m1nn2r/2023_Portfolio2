@@ -180,6 +180,7 @@ a{text-decoration:none; color:$black;}
                 h1{@include b-txt; color:#fff;
                     &:nth-child(2){padding:0 0 0 7vw; @include italic; color:transparent; -webkit-text-stroke:0.5px #fff;
                         @include responsive-991{padding:0 0 0 4vw;}
+                        @include responsive-480{padding:0 0 0 0;}
                     }
                 }
             }
@@ -272,7 +273,9 @@ a{text-decoration:none; color:$black;}
         &-inner{
             .intro-txt-wrap{
                 p{@include heading-txt;}
-                h1{padding:0 0 0 7vw; @include b-txt; @include italic; color:#fff;}
+                h1{padding:0 0 0 7vw; @include b-txt; @include italic; color:#fff;
+                    @include responsive-480{padding:0 0 0 13vw;}
+                }
             }
             .content-column{padding:7vw 0 0 0;
                 ul{

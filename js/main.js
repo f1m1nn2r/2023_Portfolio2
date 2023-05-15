@@ -243,6 +243,9 @@ window.addEventListener('scroll', function(){
                 var sticky = 96;
                 sticky -= (window.pageYOffset / document.querySelector('.at-header').scrollHeight) * 1.5;
                 stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
+                if(0 >= sticky){
+                    stickyWrap.style.transform = `translate3d(0, 0, 0)`;
+                }
             }else{
                 var circleValue = (window.pageYOffset / rightFix.offsetWidth) * 2;
                 var sticky = 96;
@@ -260,6 +263,9 @@ window.addEventListener('scroll', function(){
             var mSticky = 50;
             mSticky -= window.pageYOffset / document.querySelector('.at-header').scrollHeight;
             stickyWrap.style.transform = `translate3d(${mSticky}vw, 0, 0)`;
+            if(0 >= sticky){
+                stickyWrap.style.transform = `translate3d(0, 0, 0)`;
+            }
         }
     }
 });
