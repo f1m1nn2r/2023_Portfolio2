@@ -370,7 +370,7 @@ a{text-decoration:none; color:$black;}
                 }
             }
         }
-        @include responsive-991{height:300vw;}
+        @include responsive-991{height:170vw;}
         @include responsive-720{height:210vw;}
         @include responsive-480{height:300vw;}
     }

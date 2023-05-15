@@ -238,8 +238,11 @@ window.addEventListener('scroll', function(){
     if(window.scrollY >= section04.offsetTop){
         if(!isMobile()){
             if(991 >= window.innerWidth){
-                bgCircle.style.width = (document.documentElement.scrollHeight + window.pageYOffset / 1.2) / document.querySelector('.at-header').scrollHeight + 'vmax';
-                bgCircle.style.height = (document.documentElement.scrollHeight + window.pageYOffset / 1.2) / document.querySelector('.at-header').scrollHeight + 'vmax';
+                bgCircle.style.width = (document.documentElement.scrollHeight + window.pageYOffset) / document.querySelector('.at-header').scrollHeight + 'vmax';
+                bgCircle.style.height = (document.documentElement.scrollHeight + window.pageYOffset) / document.querySelector('.at-header').scrollHeight + 'vmax';
+                var sticky = 96;
+                sticky -= (window.pageYOffset / document.querySelector('.at-header').scrollHeight) * 1.5;
+                stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
             }else{
                 var circleValue = (window.pageYOffset / rightFix.offsetWidth) * 2;
                 var sticky = 96;
