@@ -8,7 +8,7 @@ if (isMobile()) {
     // 모바일이 아니면 실행될 코드 들어가는 곳
     document.body.classList.add('no-cursor');
     document.body.style.cursor = 'none';
-    /*
+    /* 모바일에서 무한 로딩되는 현상보여 주석처리
     window.onresize = function(){
         document.location.reload();
     }
@@ -36,38 +36,17 @@ function cursorMove(){
 }
 if(!isMobile()){cursorMove();}
 
-const section_move = document.querySelectorAll('.section_move li');
-const section = document.querySelectorAll('.section');
-for(var i=0; i<section_move.length; i++){
-    section_move[0].addEventListener('click', function(e){
-        window.scrollTo({
-            top:section[0].offsetTop,
-            behavior:'smooth',
-        });
-        e.preventDefault();
-    })
-    section_move[1].addEventListener('click', function(e){
-        window.scrollTo({
-            top:section[1].offsetTop,
-            behavior:'smooth',
-        });
-        e.preventDefault();
-    })
-    section_move[2].addEventListener('click', function(e){
-        window.scrollTo({
-            top:section[2].offsetTop,
-            behavior:'smooth',
-        });
-        e.preventDefault();
-    })
-    section_move[3].addEventListener('click', function(e){
-        window.scrollTo({
-            top:document.documentElement.scrollHeight,
-            behavior:'smooth',
-        });
-        e.preventDefault();
-    })
-}
+// 메뉴 클릭 시 해당 섹션으로 이동, 출처 https://velog.io/@gamangee/JS-%ED%81%B4%EB%A6%AD%EC%9C%BC%EB%A1%9C-%EC%9B%90%ED%95%98%EB%8A%94-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A1%9C-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0
+const sectionMove = document.querySelector('.section_move');
+sectionMove.addEventListener('click', (e) => {
+    const target = e.target;
+    const menuKey = target.dataset.key;
+    if (menuKey == null) {
+        return;
+    }
+    const scrollMenu = document.querySelector(menuKey);
+    scrollMenu.scrollIntoView({ behavior: 'smooth' });
+});
 
 // career, skils 클릭 시
 const headline = document.querySelectorAll('.heading-b');
@@ -130,20 +109,6 @@ function workImgCreate(){
     }
 }
 if(!isMobile()){workImgCreate();}
-function workLinkMove(){
-    // 클릭 시 특정 위치로 이동
-    for(var i=0; i<contentColumn_li.length; i++){
-        contentColumn_li[i].addEventListener('click', function(){
-            const link = document.querySelector('.sub_link');
-            var linkLocation = window.pageYOffset + link.getBoundingClientRect().top - 350;
-            window.scrollTo({
-                top:linkLocation,
-                behavior:'smooth',
-            })
-        });
-    }
-}
-workLinkMove();
 
 window.addEventListener('mousemove', function(e){
     // 커서 움직임에 맞춰 이미지 이동되도록
@@ -164,15 +129,7 @@ window.addEventListener('mousemove', function(e){
 });
 
 window.addEventListener('scroll', function(){
-    for(var i=0; i<section.length; i++){
-        const step = document.querySelector('.step_p span');
-        if(window.pageYOffset >= section[1].offsetTop){
-            step.innerHTML = section[1].getAttribute('data-menu');
-        }else if(window.pageYOffset >= section[2].offsetTop){
-            step.innerHTML = section[2].getAttribute('data-menu');
-        }
-        
-    }
+    
 
     // 스크롤 시 텍스트 좌 우 이동 애니메이션
     const RLScroll_section = document.querySelectorAll('.txt-scroll-section');
