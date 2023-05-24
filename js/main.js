@@ -28,7 +28,6 @@ var progress = setInterval(() => {
     }
 }, 40);
 
-
 const rightFix = document.querySelector('.right-fix');
 const cursor = document.querySelector('.cursor');
 var enterElement = document.querySelectorAll('.section_move li, .heading-b, a, .section03 .content-column ul li');
@@ -142,6 +141,7 @@ window.addEventListener('mousemove', function(e){
 });
 
 window.addEventListener('scroll', function(){
+
     // 스크롤 시 텍스트 좌 우 이동 애니메이션
     const RLScroll_section = document.querySelectorAll('.txt-scroll-section');
     const RLScroll_txt = document.querySelectorAll('.rl-scroll');
