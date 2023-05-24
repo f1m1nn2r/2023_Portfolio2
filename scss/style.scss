@@ -96,13 +96,46 @@ a{text-decoration:none; color:$black;}
     @include responsive-480{display:none;}
 }
 
+/*** 로딩 인트로 시작 ***/
+.loading-intro{@include conSize(100%, 100%, null); @include position(fixed, 0, null, null, 0, 9999); transition:opacity .5s, visibility .5s; transition-delay:.5s;
+    .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, space-between, column); padding:3vw 0;
+        & > div{padding:0 3vw;}
+        h1{line-height:1; @include dis-flex(center, null, null); column-gap:3vw; margin:0 0 0 -2vw; @include b-txt; @include italic; font-size:14vw; color:#fff; animation:stroke 1s infinite step-end;
+            span{display:block; position:relative;
+                &::before{content:attr(data-text); @include position(absolute, 1vw, null, null, 1vw, null); color:transparent; -webkit-text-stroke:1px #fff; animation:color 1s infinite step-end;}
+            }
+            @keyframes stroke{
+                50%{color:transparent; -webkit-text-stroke:1px #fff;}
+            }
+            @keyframes color{
+                50%{color:#fff; -webkit-text-stroke:1px transparent;}
+            }
+            @include responsive-991{line-height:1; flex-flow:column; align-items:flex-end; font-size:15vw;}
+        }
+        p{
+            span{display:block; @include m-txt; color:#fff;}
+        }
+    }
+    .loading-progress{@include conSize(100%, 2px, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%,-50%); transform-origin:0; padding:0; background:rgba(255,255,255, .5);
+        span{height:100%; display:block; background:#fff;}
+    }
+    &::before, &::after{content:''; @include conSize(100%, 50%, null); position:absolute; z-index:-1; background:$red; transition:all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);}
+    &::before{top:0;}
+    &::after{bottom:0;}
+    &.loading{opacity:0; visibility:hidden;
+        &::before{top:-100%}
+        &::after{bottom:-100%;}
+    }
+}
+/*** 로딩 인트로 끝 ***/
+
 /*** 헤더 시작 ***/
 .at-header{@include conSize(calc(100% - 5.4vw), null, null); @include position(fixed, 0, null, null, 0, 99); padding:2vw 2vw 2vw 1vw; backdrop-filter:blur(6px); transition:all .5s $easing;
     .header-inner{@include dis-flex(flex-start, space-between, null);
         ul{@include dis-flex(center, null, null); column-gap:4.35vw;
             li{
                 a{display:block; @include font(1.1vw, 400, $basker, $black); text-transform:uppercase;
-                    @include responsive-1600{font-size:1.6vw;}
+                    @include responsive-1600{font-size:1.4vw;}
                     @include responsive-991{font-size:2.5vw;}
                     @include responsive-480{font-size:11px;}
                 }

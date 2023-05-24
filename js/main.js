@@ -15,6 +15,20 @@ if (isMobile()) {
     */
 }
 
+// 인트로
+document.documentElement.style.overflow = 'hidden';
+var progressValue = 0;
+var progress = setInterval(() => {
+    document.querySelector('.loading-progress span').style.width = progressValue + '%'; 
+    progressValue++;
+    if(progressValue >= 101){
+        clearInterval(progress);
+        document.documentElement.style.overflow = 'initial';
+        document.querySelector('.loading-intro').classList.add('loading');
+    }
+}, 40);
+
+
 const rightFix = document.querySelector('.right-fix');
 const cursor = document.querySelector('.cursor');
 var enterElement = document.querySelectorAll('.section_move li, .heading-b, a, .section03 .content-column ul li');
@@ -123,14 +137,11 @@ window.addEventListener('mousemove', function(e){
                 workImg[i].style.transform = `translate3d(${posX}vw, ${posY}vw, 0)`;
             }
         }
-
         cursor.style.transform = `matrix(1, 0, 0, 1, ${e.clientX}, ${e.clientY})`;
     }
 });
 
 window.addEventListener('scroll', function(){
-    
-
     // 스크롤 시 텍스트 좌 우 이동 애니메이션
     const RLScroll_section = document.querySelectorAll('.txt-scroll-section');
     const RLScroll_txt = document.querySelectorAll('.rl-scroll');
@@ -174,7 +185,7 @@ window.addEventListener('scroll', function(){
     var opacityValue = 0.7 + (window.pageYOffset / document.documentElement.scrollHeight);
     for(var i=0; i<contentColumn_li.length; i++){
         contentColumn_headLine[i].style.opacity = '0.3';
-        // 스크롤이 화면 중앙 지점일 때의 기준
+        // 스크롤이 화면 중앙 지점일 때의 기준으로
         if(contentColumn_headLine[i].getBoundingClientRect().top < window.innerHeight / 2){
             contentColumn_headLine[i].style.opacity = opacityValue;
             if(opacityValue >= 1){
