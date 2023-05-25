@@ -139,6 +139,7 @@ a{text-decoration:none; color:$black;}
                     @include responsive-991{font-size:2.5vw;}
                     @include responsive-480{font-size:11px;}
                 }
+                p{@include font(1.05vw, 500, $basker, $black);}
                 span{@include font(0.85vw, 400, $noto, $black);
                     @include responsive-1600{font-size:1.2vw;}
                 }
