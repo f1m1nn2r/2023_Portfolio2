@@ -35,14 +35,16 @@ $notoS:'Noto Serif', serif;
 @mixin position($pt:null, $top:null, $right:null, $bottom:null, $left:null, $zd:null){position:$pt; top:$top; right:$right; bottom:$bottom; left:$left; z-index:$zd;}
 @mixin b-txt(){line-height:1.1; white-space:nowrap; @include font(6vw, 400, $basker, $black);
     @include responsive-991{line-height:1.4; font-size:10vw;}
+    @include responsive-480{font-size:12vw;}
 }
 @mixin m-txt(){line-height:1.5; @include font(1.65vw, 500, $mont, $black);
     @include responsive-991{font-size:3.5vw;}
     @include responsive-720{line-height:1.7; font-size:17px;}
-    @include responsive-480{font-size:13px;}
+    @include responsive-480{font-size:14px;}
 }
 @mixin heading-txt(){@include font(3vw, 400, $basker, $red); text-transform:uppercase;
     @include responsive-991{font-size:5vw;}
+    @include responsive-480{font-size:7vw;}
 } 
 @mixin italic(){font-style:italic;}
 @mixin circle-con(){@include conSize(13.6vw, 13.6vw, null); @include dis-flex(center, center, null); border:1px solid $gray; border-radius:50%;
@@ -192,8 +194,10 @@ a{text-decoration:none; color:$black;}
                 h1{@include dis-flex(null, null, null); @include b-txt; text-transform:uppercase;
                     &:nth-child(2){padding:0 0 0 27vw;
                         span{@include italic; color:$red;}
+                        @include responsive-480{padding:0 0 0 13vw;}
                     }
                     @include responsive-991{font-size:10vw;}
+                    @include responsive-480{font-size:12vw;}
                 }
             }
             .m-txt-wrap{@include dis-flex(center, space-between, null); @include transform; margin:4vw 0 0 0;
@@ -226,7 +230,9 @@ a{text-decoration:none; color:$black;}
             .content-row{@include dis-flex(null, 21vw, null); column-gap:1.5vw; margin:3vw 0 0 0;
                 .open-fold-toggle{flex:1;
                     .heading-b{@include dis-flex(center, space-between, null); padding:1vw 0; border:1px solid #fff; border-left:0; border-right:0; cursor:pointer;
-                        h1{@include font(4.5vw, 500, $mont, #fff); text-transform:uppercase;}
+                        h1{@include font(4.5vw, 500, $mont, #fff); text-transform:uppercase;
+                            @include responsive-480{font-size:6vw;}
+                        }
                         .open-fold-toggle-arrow{@include conSize(2.2vw, 2.2vw, null); position:relative; @include dis-flex(center, center, null);
                             span{display:block; position:absolute; background:#fff; transition:all .3s $easing;
                                 &.row{@include conSize(100%, 5px, null);
@@ -248,6 +254,7 @@ a{text-decoration:none; color:$black;}
                             @include responsive-480{@include conSize(12px, 12px, null); margin:0 0 3px 0;}
                         }
                         @include responsive-991{padding:3vw 0;}
+                        @include responsive-480{padding:4vw 0;}
                     }
                     .con{max-height:0; padding:1.5vw 0 0 0; opacity:0; visibility:hidden; transition:all .3s $easing;
                         li{@include dis-flex(center, null, null); position:relative; counter-increment:li-counter; color:#fff;
@@ -324,12 +331,12 @@ a{text-decoration:none; color:$black;}
                                 span{@include font(1vw, 400, $mont, $gray);
                                     @include responsive-991{font-size:23px;}
                                     @include responsive-720{font-size:17px;}
-                                    @include responsive-480{font-size:10px;}
+                                    @include responsive-480{order:2; font-size:12px;}
                                 }
                                 &.spaceBetween{justify-content:space-between;}
                                 @include responsive-991{font-size:9vw;}
                                 @include responsive-720{font-size:7vw;}
-                                @include responsive-480{font-size:23px;}
+                                @include responsive-480{flex-flow:column; align-items:center; font-size:9vw;}
                             }
                         }
                         .work-img{@include conSize(18vw, 25vw, null); @include position(absolute, null, null, null, null, 99); @include transform; opacity:0; visibility:hidden; background-size:cover; background-position:center;
@@ -399,10 +406,9 @@ a{text-decoration:none; color:$black;}
                             }
                             @include responsive-991{margin:0 0px 15px 0; font-size:2.5vw;}
                             @include responsive-720{margin:0 0px 10px 0; font-size:17px;}
-                            @include responsive-480{font-size:13px;}
+                            @include responsive-480{font-size:14px;}
                         }
                     }
-                    @include responsive-480{margin:15px 0 0 0;}
                 }
                 .mail{@include circle-con; margin:0 auto; margin-right:0; margin-top:11vw;
                     img{width:auto;
