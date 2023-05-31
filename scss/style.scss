@@ -40,7 +40,7 @@ $notoS:'Noto Serif', serif;
 @mixin m-txt(){line-height:1.5; @include font(1.65vw, 500, $mont, $black);
     @include responsive-991{font-size:3.5vw;}
     @include responsive-720{line-height:1.7; font-size:17px;}
-    @include responsive-480{font-size:14px;}
+    @include responsive-480{line-height:1.8; font-size:15px;}
 }
 @mixin heading-txt(){@include font(3vw, 400, $basker, $red); text-transform:uppercase;
     @include responsive-991{font-size:5vw;}
@@ -144,7 +144,7 @@ a{text-decoration:none; color:$black;}
                 a{display:block; @include font(1.1vw, 400, $basker, $black); text-transform:uppercase;
                     @include responsive-1600{font-size:1.4vw;}
                     @include responsive-991{font-size:2.5vw;}
-                    @include responsive-480{font-size:11px;}
+                    @include responsive-480{font-size:13px;}
                 }
                 p{@include font(1.05vw, 500, $basker, $black);}
                 span{@include font(0.85vw, 400, $noto, $black);
@@ -331,7 +331,7 @@ a{text-decoration:none; color:$black;}
                                 span{@include font(1vw, 400, $mont, $gray);
                                     @include responsive-991{font-size:23px;}
                                     @include responsive-720{font-size:17px;}
-                                    @include responsive-480{order:2; font-size:12px;}
+                                    @include responsive-480{order:2; font-size:13px;}
                                 }
                                 &.spaceBetween{justify-content:space-between;}
                                 @include responsive-991{font-size:9vw;}
