@@ -1401,6 +1401,7 @@ a {
 .area02 .section04 {
   height: 250vh;
   position: relative;
+  background: #eee;
 }
 .area02 .section04-inner {
   height: 100vh;
@@ -1588,7 +1589,7 @@ a {
 }
 @media (max-width: 480px) {
   .area02 .section04 {
-    height: 385vw;
+    height: 400vw;
   }
 }
 
