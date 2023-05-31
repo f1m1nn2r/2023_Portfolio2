@@ -196,6 +196,12 @@ a {
   -webkit-animation: color 1s infinite step-end;
           animation: color 1s infinite step-end;
 }
+@media (max-width: 480px) {
+  .loading-intro .intro-txt-wrap h1 span::before {
+    top: 2vw;
+    left: -2vw;
+  }
+}
 @-webkit-keyframes stroke {
   50% {
     color: transparent;
@@ -233,6 +239,11 @@ a {
     font-size: 15vw;
   }
 }
+@media (max-width: 480px) {
+  .loading-intro .intro-txt-wrap h1 {
+    font-size: 20vw;
+  }
+}
 .loading-intro .intro-txt-wrap p span {
   display: block;
   line-height: 1.5;
@@ -256,6 +267,12 @@ a {
 @media (max-width: 480px) {
   .loading-intro .intro-txt-wrap p span {
     font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .loading-intro .intro-txt-wrap p span {
+    line-height: 1.4;
+    font-size: 16px;
   }
 }
 .loading-intro .loading-progress {
@@ -1561,17 +1578,17 @@ a {
 }
 @media (max-width: 991px) {
   .area02 .section04 {
-    height: 170vw;
+    height: 190vw;
   }
 }
 @media (max-width: 720px) {
   .area02 .section04 {
-    height: 210vw;
+    height: 310vw;
   }
 }
 @media (max-width: 480px) {
   .area02 .section04 {
-    height: 300vw;
+    height: 315vw;
   }
 }
 

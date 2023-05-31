@@ -65,7 +65,7 @@ sectionMove.addEventListener('click', (e) => {
 const headline = document.querySelectorAll('.heading-b');
 const history = document.querySelectorAll('.history_con');
 const exposuer_arrow = document.querySelectorAll('.open-fold-toggle-arrow');
-for (var i=0; i<headline.length; i++){
+for(var i=0; i<headline.length; i++){
     headline[i].addEventListener('click', function(){
         var this_headline = this;
         for(var i=0; i<headline.length; i++){
@@ -94,7 +94,7 @@ function workImgCreate(){
         const workImg = document.querySelectorAll('.work-img');
         workImg[i].style.backgroundImage = `url('./img/move-img0${i + 1}.png')`;    
     
-        // 마우스 오버 시 이미지 노출, li 인덱스에 따라 노출 여부 설정
+        // 마우스 오버 시 이미지 노출
         contentColumn_li[i].addEventListener('mouseover', function(){
             var this_li = this;
             for(var i=0; i<contentColumn_li.length; i++){
@@ -141,7 +141,6 @@ window.addEventListener('mousemove', function(e){
 });
 
 window.addEventListener('scroll', function(){
-
     // 스크롤 시 텍스트 좌 우 이동 애니메이션
     const RLScroll_section = document.querySelectorAll('.txt-scroll-section');
     const RLScroll_txt = document.querySelectorAll('.rl-scroll');
@@ -201,7 +200,7 @@ window.addEventListener('scroll', function(){
     const stickyWrap = document.querySelector('.section04 .intro-txt-wrap');
     bgCircle.style.width = 10 + 'vmax';
     bgCircle.style.height = 10 + 'vmax';
-    stickyWrap.style.transform = `translate3d(${100}vw, 0, 0)`
+    stickyWrap.style.transform = `translate3d(${100}vw, 0, 0)`;
     
     if(window.scrollY >= section04.offsetTop){
         if(!isMobile()){
@@ -210,19 +209,22 @@ window.addEventListener('scroll', function(){
                 bgCircle.style.height = (document.documentElement.scrollHeight + window.pageYOffset) / document.querySelector('.at-header').scrollHeight + 'vmax';
                 var sticky = 96;
                 sticky -= (window.pageYOffset / document.querySelector('.at-header').scrollHeight) * 1.5;
-                stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
                 if(0 >= sticky){
                     stickyWrap.style.transform = `translate3d(0, 0, 0)`;
+                }else{
+                    stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
                 }
+                
             }else{
                 var circleValue = (window.pageYOffset / rightFix.offsetWidth) * 2;
-                var sticky = 96;
+                var sticky = 100;
                 sticky -= (window.pageYOffset / rightFix.offsetWidth) * 1.5;
                 bgCircle.style.width = circleValue + 'vmax';
                 bgCircle.style.height = circleValue + 'vmax';
-                stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
                 if(0 >= sticky){
                     stickyWrap.style.transform = `translate3d(0, 0, 0)`;
+                }else{
+                    stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
                 }
             }
         }else{
@@ -245,4 +247,22 @@ window.addEventListener('wheel', function(e){
     }else{
         header.style.top = 0;
     }
+});
+
+// IntersectionObserver API, 출처 https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/observe
+const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        const $target = entry.target;
+        const test = document.querySelectorAll('.step_p span');
+        for(var i=0; i<test.length; i++){
+            if(entry.isIntersecting){ // 화면에 보일 경우
+                test[i].innerHTML = $target.dataset.menu;
+            }
+        }
+    });
+});
+// 각 섹션에 대한 옵저버 시작
+const $item = document.querySelectorAll('.section');
+$item.forEach(item => {
+    io.observe(item);
 });

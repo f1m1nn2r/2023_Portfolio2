@@ -102,7 +102,9 @@ a{text-decoration:none; color:$black;}
         & > div{padding:0 3vw;}
         h1{line-height:1; @include dis-flex(center, null, null); column-gap:3vw; margin:0 0 0 -2vw; @include b-txt; @include italic; font-size:14vw; color:#fff; animation:stroke 1s infinite step-end;
             span{display:block; position:relative;
-                &::before{content:attr(data-text); @include position(absolute, 1vw, null, null, 1vw, null); color:transparent; -webkit-text-stroke:1px #fff; animation:color 1s infinite step-end;}
+                &::before{content:attr(data-text); @include position(absolute, 1vw, null, null, 1vw, null); color:transparent; -webkit-text-stroke:1px #fff; animation:color 1s infinite step-end;
+                    @include responsive-480{top:2vw; left:-2vw;}
+                }
             }
             @keyframes stroke{
                 50%{color:transparent; -webkit-text-stroke:1px #fff;}
@@ -111,9 +113,12 @@ a{text-decoration:none; color:$black;}
                 50%{color:#fff; -webkit-text-stroke:1px transparent;}
             }
             @include responsive-991{line-height:1; flex-flow:column; align-items:flex-end; font-size:15vw;}
+            @include responsive-480{font-size:20vw;}
         }
         p{
-            span{display:block; @include m-txt; color:#fff;}
+            span{display:block; @include m-txt; color:#fff;
+                @include responsive-480{line-height:1.4; font-size:16px;}
+            }
         }
     }
     .loading-progress{@include conSize(100%, 2px, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%,-50%); transform-origin:0; padding:0; background:rgba(255,255,255, .5);
@@ -407,9 +412,9 @@ a{text-decoration:none; color:$black;}
                 }
             }
         }
-        @include responsive-991{height:170vw;}
-        @include responsive-720{height:210vw;}
-        @include responsive-480{height:300vw;}
+        @include responsive-991{height:190vw;}
+        @include responsive-720{height:310vw;}
+        @include responsive-480{height:315vw;}
     }
     // 섹션04 끝
 }
