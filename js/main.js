@@ -214,12 +214,10 @@ window.addEventListener('scroll', function(){
                 }else{
                     stickyWrap.style.transform = `translate3d(${sticky}vw, 0, 0)`;
                 }
-                
             }else{
                 var circleValue = (window.pageYOffset / rightFix.offsetWidth) * 2;
                 var sticky = 100;
-                sticky -= (window.pageYOffset / rightFix.offsetWidth) * 1.5;
-                sticky > 0 ? sticky -= (window.pageYOffset / rightFix.offsetWidth) * 1.5 : 0;
+                sticky -= (window.pageYOffset / rightFix.offsetWidth) * 1.7;
                 bgCircle.style.width = circleValue + 'vmax';
                 bgCircle.style.height = circleValue + 'vmax';
                 if(0 >= sticky){
