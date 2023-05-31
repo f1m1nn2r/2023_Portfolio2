@@ -219,6 +219,7 @@ window.addEventListener('scroll', function(){
                 var circleValue = (window.pageYOffset / rightFix.offsetWidth) * 2;
                 var sticky = 100;
                 sticky -= (window.pageYOffset / rightFix.offsetWidth) * 1.5;
+                sticky > 0 ? sticky -= (window.pageYOffset / rightFix.offsetWidth) * 1.5 : 0;
                 bgCircle.style.width = circleValue + 'vmax';
                 bgCircle.style.height = circleValue + 'vmax';
                 if(0 >= sticky){
@@ -230,11 +231,12 @@ window.addEventListener('scroll', function(){
         }else{
             bgCircle.style.width = window.scrollY / 15 + 'vmax';
             bgCircle.style.height = window.scrollY / 15 + 'vmax';
-            var mSticky = 50;
+            var mSticky = 65;
             mSticky -= window.pageYOffset / document.querySelector('.at-header').scrollHeight;
-            stickyWrap.style.transform = `translate3d(${mSticky}vw, 0, 0)`;
-            if(0 >= sticky){
+            if(0 >= mSticky){
                 stickyWrap.style.transform = `translate3d(0, 0, 0)`;
+            }else{
+                stickyWrap.style.transform = `translate3d(${mSticky}vw, 0, 0)`;
             }
         }
     }
@@ -253,10 +255,10 @@ window.addEventListener('wheel', function(e){
 const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         const $target = entry.target;
-        const test = document.querySelectorAll('.step_p span');
-        for(var i=0; i<test.length; i++){
+        const rightMenu = document.querySelectorAll('.step_p span');
+        for(var i=0; i<rightMenu.length; i++){
             if(entry.isIntersecting){ // 화면에 보일 경우
-                test[i].innerHTML = $target.dataset.menu;
+                rightMenu[i].innerHTML = $target.dataset.menu;
             }
         }
     });

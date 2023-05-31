@@ -203,8 +203,8 @@ a{text-decoration:none; color:$black;}
                 }*/
                 @include responsive-991{margin:7vw 0 0 0;}
             }
-            @include responsive-991{padding:18vw 15px;}
-            @include responsive-480{height:100vh; padding:0 15px;}
+            @include responsive-991{height:100vh; padding:18vw 15px;}
+            @include responsive-480{padding:0 15px;}
         }
     }
     // 섹션01 끝
@@ -414,7 +414,7 @@ a{text-decoration:none; color:$black;}
         }
         @include responsive-991{height:190vw;}
         @include responsive-720{height:310vw;}
-        @include responsive-480{height:315vw;}
+        @include responsive-480{height:385vw;}
     }
     // 섹션04 끝
 }

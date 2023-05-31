@@ -616,12 +616,12 @@ a {
 }
 @media (max-width: 991px) {
   .area01 .section01-inner {
+    height: 100vh;
     padding: 18vw 15px;
   }
 }
 @media (max-width: 480px) {
   .area01 .section01-inner {
-    height: 100vh;
     padding: 0 15px;
   }
 }
@@ -1588,7 +1588,7 @@ a {
 }
 @media (max-width: 480px) {
   .area02 .section04 {
-    height: 315vw;
+    height: 385vw;
   }
 }
 
