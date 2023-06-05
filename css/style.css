@@ -178,7 +178,7 @@ a {
   -webkit-text-stroke: 1px #fff;
   animation: color 1s infinite step-end;
 }
-@media (max-width: 480px) {
+@media (max-width: 991px) {
   .loading-intro .intro-txt-wrap h1 span::before {
     top: 2vw;
     left: -2vw;

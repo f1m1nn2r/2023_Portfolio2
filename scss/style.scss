@@ -105,7 +105,7 @@ a{text-decoration:none; color:$black;}
         h1{line-height:1; @include dis-flex(center, null, null); column-gap:3vw; margin:0 0 0 -2vw; @include b-txt; @include italic; font-size:14vw; color:#fff; animation:stroke 1s infinite step-end;
             span{display:block; position:relative;
                 &::before{content:attr(data-text); @include position(absolute, 1vw, null, null, 1vw, null); color:transparent; -webkit-text-stroke:1px #fff; animation:color 1s infinite step-end;
-                    @include responsive-480{top:2vw; left:-2vw;}
+                    @include responsive-991{top:2vw; left:-2vw;}
                 }
             }
             @keyframes stroke{
