@@ -1259,6 +1259,7 @@ a {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
+  overflow: hidden;
 }
 .area02 .section04-inner .bg-circle {
   width: 10vw;
@@ -1280,7 +1281,6 @@ a {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  overflow: hidden;
 }
 .area02 .section04-inner .intro-txt-wrap .txt h1 {
   margin: 0 0 2.5vw 0;
@@ -1399,11 +1399,6 @@ a {
 @media (max-width: 480px) {
   .area02 .section04-inner .intro-txt-wrap .mail img {
     height: 32px;
-  }
-}
-@media (max-width: 480px) {
-  .area02 .section04-inner {
-    overflow: hidden;
   }
 }
 @media (max-width: 991px) {
