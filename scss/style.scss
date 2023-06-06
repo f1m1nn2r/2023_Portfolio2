@@ -102,17 +102,17 @@ a{text-decoration:none; color:$black;}
 .loading-intro{@include conSize(100%, 100%, null); @include position(fixed, 0, null, null, 0, 9999); transition:opacity .5s, visibility .5s; transition-delay:.5s;
     .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, space-between, column); padding:3vw 0;
         & > div{padding:0 3vw;}
-        h1{line-height:1; @include dis-flex(center, null, null); column-gap:3vw; margin:0 0 0 -2vw; @include b-txt; @include italic; font-size:14vw; color:#fff; 
-            span{display:block; position:relative; animation:stroke 1s infinite step-end;
-                &::before{content:attr(data-text); @include position(absolute, 1vw, null, null, 1vw, null); color:transparent; -webkit-text-stroke:1px #fff; animation:color 1s infinite step-end;
+        h1{line-height:1; @include dis-flex(center, null, null); column-gap:3vw; margin:0 0 0 -2vw; @include b-txt; @include italic; font-size:14vw; //color:#fff; 
+            span{display:block; position:relative; animation:stroke 1s infinite step-end; color:$red; text-shadow:-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+                &::before{content:attr(data-text); @include position(absolute, 1vw, null, null, 1vw, null); color:#fff; text-shadow:-1px -1px 0 $red, 1px -1px 0 $red, -1px 1px 0 $red, 1px 1px 0 $red; animation:color 1s infinite step-end;
                     @include responsive-991{top:2vw; left:-2vw;}
                 }
             }
             @keyframes stroke{
-                50%{color:transparent; -webkit-text-stroke:1px #fff;}
+                50%{color:#fff; text-shadow:-1px -1px 0 $red, 1px -1px 0 $red, -1px 1px 0 $red, 1px 1px 0 $red;}
             }
             @keyframes color{
-                50%{color:#fff; -webkit-text-stroke:1px transparent;}
+                50%{color:$red; text-shadow:-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;;}
             }
             @include responsive-991{line-height:1; flex-flow:column; align-items:flex-end; font-size:15vw;}
             @include responsive-480{font-size:20vw;}
@@ -129,10 +129,10 @@ a{text-decoration:none; color:$black;}
     &::before, &::after{content:''; @include conSize(100%, 50%, null); position:absolute; z-index:-1; background:$red; transition:all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);}
     &::before{top:0;}
     &::after{bottom:0;}
-    &.loading{opacity:0; visibility:hidden;
+    /*&.loading{opacity:0; visibility:hidden;
         &::before{top:-100%}
         &::after{bottom:-100%;}
-    }
+    }*/
 }
 /*** 로딩 인트로 끝 ***/
 
@@ -388,17 +388,9 @@ a{text-decoration:none; color:$black;}
 
     // 섹션04
     .section04{height:250vh; position:relative;
-        &-inner{@include conSize(null, 100vh, null); /*@include dis-flex(null, center, column);*/ display:block; align-self:flex-start; position: -webkit-sticky;
-            position: -moz-sticky;
-            position: -o-sticky;
-            position: -ms-sticky;
-            position: sticky; position:sticky; top:0; //overflow:hidden;
+        &-inner{@include conSize(null, 100vh, null); /*@include dis-flex(null, center, column);*/ display:block; align-self:flex-start; -webkit-position: sticky; position: -webkit-sticky; position:-moz-sticky; position:-o-sticky; position:-ms-sticky; position:sticky; top:0; //overflow:hidden;
             .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%; transition:all .3s $easing;}
-            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); align-self:flex-start; position: -webkit-sticky;
-                position: -moz-sticky;
-                position: -o-sticky;
-                position: -ms-sticky;
-                position: sticky; position:sticky; top:0; //@include transform;
+            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); align-self:flex-start; -webkit-position: sticky; position:-webkit-sticky; position:-moz-sticky; position:-o-sticky; position:-ms-sticky; position:sticky; top:0; //@include transform;
                 .txt{
                     h1{margin:0 0 2.5vw 0; @include b-txt; text-transform:uppercase;}
                     p{@include font(1vw, 400, $noto, $black);
