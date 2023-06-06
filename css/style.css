@@ -1470,6 +1470,7 @@ a {
       -ms-flex-flow: column;
           flex-flow: column;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   overflow: hidden;
 }
@@ -1500,6 +1501,7 @@ a {
       -ms-flex-flow: column;
           flex-flow: column;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
 }
 .area02 .section04-inner .intro-txt-wrap .txt h1 {
