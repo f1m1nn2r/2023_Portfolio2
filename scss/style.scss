@@ -79,7 +79,7 @@ a{text-decoration:none; color:$black;}
 .section-inner{padding:0 8.5vw 0 6vw;
     @include responsive-991{padding:0 15px;}
 }
-.cursor{@include position(fixed, null, null, null, null, 9999); pointer-events:none; @include transform;
+.cursor{@include position(fixed, null, null, null, null, 9999); pointer-events:none; //@include transform;
     p{@include conSize(2vw, 2vw, null); display:block; background:$red; border-radius:50%; transition:all .5s $easing; pointer-events:none;
         @include responsive-991{@include conSize(4vw, 4vw, null);}
     }
@@ -189,7 +189,7 @@ a{text-decoration:none; color:$black;}
 .area01{
     // 섹션01
     .section01{overflow:hidden;
-        &-inner{@include dis-flex(null, center, column); @include transform; padding:13vw 8.5vw 13vw 6vw;
+        &-inner{@include dis-flex(null, center, column);  padding:13vw 8.5vw 13vw 6vw; //@include transform;
             .intro-txt-wrap{
                 h1{@include dis-flex(null, null, null); @include b-txt; text-transform:uppercase;
                     &:nth-child(2){padding:0 0 0 27vw;
@@ -200,7 +200,7 @@ a{text-decoration:none; color:$black;}
                     @include responsive-480{font-size:12vw;}
                 }
             }
-            .m-txt-wrap{@include dis-flex(center, space-between, null); @include transform; margin:4vw 0 0 0;
+            .m-txt-wrap{@include dis-flex(center, space-between, null);  margin:4vw 0 0 0; //@include transform;
                 .txt{@include m-txt;}
                 /*.next-section-arrow{@include circle-con; cursor:pointer;
                     span{@include arrow;}
@@ -339,7 +339,7 @@ a{text-decoration:none; color:$black;}
                                 @include responsive-480{flex-flow:column; align-items:center; font-size:9vw;}
                             }
                         }
-                        .work-img{@include conSize(18vw, 25vw, null); @include position(absolute, null, null, null, null, 99); @include transform; opacity:0; visibility:hidden; background-size:cover; background-position:center;
+                        .work-img{@include conSize(18vw, 25vw, null); @include position(absolute, null, null, null, null, 99);  opacity:0; visibility:hidden; background-size:cover; background-position:center; //@include transform;
                             @include responsive-991{@include conSize(46vw, 57vw, null);}
                         }
                         &:last-child{border-bottom:0;}
@@ -390,7 +390,7 @@ a{text-decoration:none; color:$black;}
     .section04{height:250vh; position:relative;
         &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column); @include position(sticky, 0, null, null, null, null); position:-webkit-sticky; overflow:hidden;
             .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%; transition:all .3s $easing;}
-            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); @include position(sticky, 0, null, null, null, null); position:-webkit-sticky; @include transform;
+            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); @include position(sticky, 0, null, null, null, null); position:-webkit-sticky; //@include transform;
                 .txt{
                     h1{margin:0 0 2.5vw 0; @include b-txt; text-transform:uppercase;}
                     p{@include font(1vw, 400, $noto, $black);
