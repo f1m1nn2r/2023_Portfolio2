@@ -1249,6 +1249,11 @@ a {
     border-width: 1px;
   }
 }
+@media (max-width: 480px) {
+  .area02 .section03 {
+    padding: 0 0 60vw 0;
+  }
+}
 .area02 .section04 {
   height: 250vh;
   position: relative;
@@ -1275,7 +1280,7 @@ a {
   transform: translate(-50%, -50%);
   background: #eee;
   border-radius: 50%;
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), height 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .area02 .section04-inner .intro-txt-wrap {
   width: 100%;

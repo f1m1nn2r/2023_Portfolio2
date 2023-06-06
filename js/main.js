@@ -227,9 +227,9 @@ window.addEventListener('scroll', function(){
                 }
             }
         }else{
-            bgCircle.style.width = window.scrollY / 15 + 'vmax';
-            bgCircle.style.height = window.scrollY / 15 + 'vmax';
-            var mSticky = 50;
+            bgCircle.style.width = window.scrollY / 20 + 'vmax';
+            bgCircle.style.height = window.scrollY / 20 + 'vmax';
+            var mSticky = 30;
             mSticky -= window.pageYOffset / document.querySelector('.at-header').scrollHeight;
             if(0 >= mSticky){
                 stickyWrap.style.transform = `translate3d(0, 0, 0)`;
