@@ -544,6 +544,7 @@ a {
 }
 
 .area02 {
+  position: relative;
   background: #000;
 }
 .area02 .section02-inner {
@@ -1256,8 +1257,8 @@ a {
   display: flex;
   justify-content: center;
   flex-flow: column;
-  position: sticky;
   position: -webkit-sticky;
+  position: sticky;
   top: 0;
   overflow: hidden;
 }
@@ -1278,8 +1279,8 @@ a {
   display: flex;
   justify-content: center;
   flex-flow: column;
-  position: sticky;
   position: -webkit-sticky;
+  position: sticky;
   top: 0;
 }
 .area02 .section04-inner .intro-txt-wrap .txt h1 {
