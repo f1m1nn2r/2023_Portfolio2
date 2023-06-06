@@ -1260,8 +1260,9 @@ a {
 }
 .area02 .section04-inner {
   height: 100vh;
-  /*@include dis-flex(null, center, column);*/
-  display: block;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
   align-self: flex-start;
   -webkit-position: sticky;
   position: -webkit-sticky;
