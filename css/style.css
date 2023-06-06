@@ -1254,13 +1254,11 @@ a {
 }
 .area02 .section04-inner {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-flow: column;
+  /*@include dis-flex(null, center, column);*/
+  display: block;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  overflow: hidden;
 }
 .area02 .section04-inner .bg-circle {
   width: 10vw;

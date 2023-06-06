@@ -388,7 +388,7 @@ a{text-decoration:none; color:$black;}
 
     // 섹션04
     .section04{height:250vh; position:relative;
-        &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column); position:-webkit-sticky; position:sticky; top:0; overflow:hidden;
+        &-inner{@include conSize(null, 100vh, null); /*@include dis-flex(null, center, column);*/ display:block; position:-webkit-sticky; position:sticky; top:0; //overflow:hidden;
             .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%; transition:all .3s $easing;}
             .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); position:-webkit-sticky; position:sticky; top:0; //@include transform;
                 .txt{
