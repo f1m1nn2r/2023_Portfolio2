@@ -388,9 +388,17 @@ a{text-decoration:none; color:$black;}
 
     // 섹션04
     .section04{height:250vh; position:relative;
-        &-inner{@include conSize(null, 100vh, null); /*@include dis-flex(null, center, column);*/ display:block; position:-webkit-sticky; position:sticky; top:0; //overflow:hidden;
+        &-inner{@include conSize(null, 100vh, null); /*@include dis-flex(null, center, column);*/ display:block; align-self:flex-start; position: -webkit-sticky;
+            position: -moz-sticky;
+            position: -o-sticky;
+            position: -ms-sticky;
+            position: sticky; position:sticky; top:0; //overflow:hidden;
             .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%; transition:all .3s $easing;}
-            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); position:-webkit-sticky; position:sticky; top:0; //@include transform;
+            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); align-self:flex-start; position: -webkit-sticky;
+                position: -moz-sticky;
+                position: -o-sticky;
+                position: -ms-sticky;
+                position: sticky; position:sticky; top:0; //@include transform;
                 .txt{
                     h1{margin:0 0 2.5vw 0; @include b-txt; text-transform:uppercase;}
                     p{@include font(1vw, 400, $noto, $black);

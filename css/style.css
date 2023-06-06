@@ -1256,7 +1256,12 @@ a {
   height: 100vh;
   /*@include dis-flex(null, center, column);*/
   display: block;
+  align-self: flex-start;
   position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
+  position: sticky;
   position: sticky;
   top: 0;
 }
@@ -1277,7 +1282,12 @@ a {
   display: flex;
   justify-content: center;
   flex-flow: column;
+  align-self: flex-start;
   position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
+  position: sticky;
   position: sticky;
   top: 0;
 }
