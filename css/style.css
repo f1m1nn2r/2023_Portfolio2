@@ -123,10 +123,6 @@ a {
   z-index: 9999;
   transition: opacity 0.5s, visibility 0.5s;
   transition-delay: 0.5s;
-  /*&.loading{opacity:0; visibility:hidden;
-      &::before{top:-100%}
-      &::after{bottom:-100%;}
-  }*/
 }
 .loading-intro .intro-txt-wrap {
   width: 100%;
@@ -274,6 +270,16 @@ a {
 }
 .loading-intro::after {
   bottom: 0;
+}
+.loading-intro.loading {
+  opacity: 0;
+  visibility: hidden;
+}
+.loading-intro.loading::before {
+  top: -100%;
+}
+.loading-intro.loading::after {
+  bottom: -100%;
 }
 
 /*** 로딩 인트로 끝 ***/
