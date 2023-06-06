@@ -1401,6 +1401,11 @@ a {
     height: 32px;
   }
 }
+@media (max-width: 480px) {
+  .area02 .section04-inner {
+    overflow: hidden;
+  }
+}
 @media (max-width: 991px) {
   .area02 .section04 {
     height: 190vw;

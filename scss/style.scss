@@ -417,6 +417,7 @@ a{text-decoration:none; color:$black;}
                     }
                 }
             }
+            @include responsive-480{overflow:hidden;}
         }
         @include responsive-991{height:190vw;}
         @include responsive-720{height:310vw;}
