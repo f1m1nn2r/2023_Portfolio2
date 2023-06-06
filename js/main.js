@@ -16,6 +16,7 @@ if (isMobile()) {
 }
 
 // 인트로
+/*
 document.documentElement.style.overflow = 'hidden';
 var progressValue = 0;
 var progress = setInterval(() => {
@@ -27,7 +28,7 @@ var progress = setInterval(() => {
         document.querySelector('.loading-intro').classList.add('loading');
     }
 }, 40);
-
+*/
 const rightFix = document.querySelector('.right-fix');
 const cursor = document.querySelector('.cursor');
 var enterElement = document.querySelectorAll('.section_move li, .heading-b, a, .section03 .content-column ul li');

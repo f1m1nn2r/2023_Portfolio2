@@ -388,10 +388,10 @@ a{text-decoration:none; color:$black;}
     // 섹션03 끝
 
     // 섹션04
-    .section04{height:150vw; position:relative;
+    .section04{height:250vh; position:relative;
         &-inner{@include conSize(null, 100vh, null); @include dis-flex(null, center, column); align-self:flex-start; -webkit-position: sticky; position: -webkit-sticky; position:-moz-sticky; position:-o-sticky; position:-ms-sticky; position:sticky; top:0; //overflow:hidden;
-            .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%; transition:width .3s $easing, height .3s $easing;}
-            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, center, column); align-self:flex-start; -webkit-position: sticky; position:-webkit-sticky; position:-moz-sticky; position:-o-sticky; position:-ms-sticky; position:sticky; top:0; //@include transform;
+            .bg-circle{@include conSize(10vw, 10vw, null); @include position(absolute, 50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$basic; border-radius:50%; /*transition:width .3s $easing, height .3s $easing;*/}
+            .intro-txt-wrap{@include conSize(100%, 100%, null); @include dis-flex(null, space-evenly, column); align-self:flex-start; -webkit-position: sticky; position:-webkit-sticky; position:-moz-sticky; position:-o-sticky; position:-ms-sticky; position:sticky; top:0; //@include transform;
                 .txt{
                     h1{margin:0 0 2.5vw 0; @include b-txt; text-transform:uppercase;}
                     p{@include font(1vw, 400, $noto, $black);
