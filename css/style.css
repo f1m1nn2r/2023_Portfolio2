@@ -1259,7 +1259,6 @@ a {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  overflow: hidden;
 }
 .area02 .section04-inner .bg-circle {
   width: 10vw;
