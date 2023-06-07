@@ -201,7 +201,7 @@ window.addEventListener('scroll', function(){
     bgCircle.style.height = 10 + 'vmax';
     stickyWrap.style.transform = `translate3d(${100}vw, 0, 0)`;
     
-    if(window.scrollY >= section04.offsetTop){
+    if(window.scrollY >= section04.getBoundingClientRect().top){
         if(!isMobile()){
             if(991 >= window.innerWidth){
                 bgCircle.style.width = (document.documentElement.scrollHeight + window.pageYOffset) / document.querySelector('.at-header').scrollHeight + 'vmax';
