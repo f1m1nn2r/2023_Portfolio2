@@ -326,8 +326,8 @@ a{text-decoration:none; color:$black;}
             .content-column{padding:7vw 0 0 0;
                 ul{
                     li{@include dis-flex(flex-end, center, null); position:relative; padding:2vw 0; border-bottom:1px solid #fff; cursor:pointer;
-                        .headline{
-                            p{@include conSize(100%, null, null); @include dis-flex(flex-end, center, null); @include b-txt; font-family:$mont; color:#fff; transition:all .3s $easing;
+                        .headline{transition:all .3s $easing;
+                            p{@include conSize(100%, null, null); @include dis-flex(flex-end, center, null); @include b-txt; font-family:$mont; color:#fff;
                                 span{@include font(1vw, 400, $mont, $gray);
                                     @include responsive-991{font-size:23px;}
                                     @include responsive-720{font-size:17px;}
@@ -338,6 +338,7 @@ a{text-decoration:none; color:$black;}
                                 @include responsive-720{font-size:7vw;}
                                 @include responsive-480{flex-flow:column; align-items:center; font-size:9vw;}
                             }
+                            & > span{display:block; padding:10px 0 0 0; @include font(1.2vw, 300, $noto, $red); text-align:center;}
                         }
                         .work-img{@include conSize(18vw, 25vw, null); @include position(absolute, null, null, null, null, 99);  opacity:0; visibility:hidden; background-size:cover; background-position:center; //@include transform;
                             @include responsive-991{@include conSize(46vw, 57vw, null);}

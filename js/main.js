@@ -27,6 +27,7 @@ var progress = setInterval(() => {
         document.querySelector('.loading-intro').classList.add('loading');
     }
 }, 40);
+
 const rightFix = document.querySelector('.right-fix');
 const cursor = document.querySelector('.cursor');
 var enterElement = document.querySelectorAll('.section_move li, .heading-b, a, .section03 .content-column ul li');
@@ -83,7 +84,7 @@ for(var i=0; i<headline.length; i++){
 }
 
 const contentColumn_li = document.querySelectorAll('.section03 .content-column > ul > li');
-const contentColumn_headLine = document.querySelectorAll('.section03 .headline p');
+const contentColumn_headLine = document.querySelectorAll('.section03 .headline');
 function workImgCreate(){
     for(var i=0; i<contentColumn_li.length; i++){
         var contentColumn_div = document.createElement('div');
