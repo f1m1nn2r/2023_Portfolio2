@@ -1168,12 +1168,12 @@ a {
 }
 @media (max-width: 991px) {
   .area02 .section03-inner .content-column ul li .headline p span {
-    font-size: 23px;
+    font-size: 21px;
   }
 }
 @media (max-width: 720px) {
   .area02 .section03-inner .content-column ul li .headline p span {
-    font-size: 17px;
+    font-size: 15px;
   }
 }
 @media (max-width: 480px) {
@@ -1219,6 +1219,22 @@ a {
   font-family: "Noto Sans KR", sans-serif;
   color: #d61c45;
   text-align: center;
+}
+@media (max-width: 991px) {
+  .area02 .section03-inner .content-column ul li .headline > span {
+    font-size: 23px;
+  }
+}
+@media (max-width: 720px) {
+  .area02 .section03-inner .content-column ul li .headline > span {
+    font-size: 17px;
+  }
+}
+@media (max-width: 480px) {
+  .area02 .section03-inner .content-column ul li .headline > span {
+    padding: 5px 0 0 0;
+    font-size: 14px;
+  }
 }
 .area02 .section03-inner .content-column ul li .work-img {
   width: 18vw;
